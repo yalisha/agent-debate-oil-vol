@@ -1,0 +1,13 @@
+regime,driver,best_lag,f_stat,p_value,significant,n_obs
+Low-Volatility,oil_goldstein_mean,1,2.311356640097998,0.12855308737768859,False,2613
+Low-Volatility,oil_conflict_share,2,0.9393886334561296,0.3909990403590847,False,2613
+Low-Volatility,oil_material_conflict_share,1,5.189194684931493,0.022808282845914345,True,2613
+Low-Volatility,oil_net_coop,2,0.9393886334563569,0.39099904035902777,False,2613
+Low-Volatility,oil_tone_mean,2,3.5503554157481525,0.02885340524436576,True,2613
+Low-Volatility,oil_mentions_sum,5,2.3661936357470856,0.03747258013215428,True,2613
+High-Volatility,oil_goldstein_mean,1,1.8834152695407878,0.17176516052807336,False,173
+High-Volatility,oil_conflict_share,1,1.1313559932046604,0.289003723886924,False,173
+High-Volatility,oil_material_conflict_share,1,1.243576235920505,0.26636618600011036,False,173
+High-Volatility,oil_net_coop,1,1.1313559932046333,0.2890037238869264,False,173
+High-Volatility,oil_tone_mean,1,0.04456995166387747,0.8330511354685822,False,173
+High-Volatility,oil_mentions_sum,1,0.25195015097013373,0.6163585731101011,False,173

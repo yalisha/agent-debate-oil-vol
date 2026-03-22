@@ -1,0 +1,591 @@
+[
+  {
+    "date": "2020-01-02",
+    "forecast_error": 0.0008557912258515798,
+    "vol_forecast": 0.12501207150097457,
+    "actual_vol": 0.1542659810833121,
+    "shapley": {
+      "geopolitical": -0.0002085425324187648,
+      "macro_demand": 6.07507207342107e-05,
+      "monetary": -1.2318613861171096e-05,
+      "supply_opec": -0.00015735263686809356,
+      "technical": 0.00011252003822319397,
+      "sentiment": -0.00010454733774024961,
+      "cross_market": 7.353832475084976e-05
+    },
+    "myerson": {
+      "geopolitical": -0.00021690152959407804,
+      "macro_demand": 3.319030543256513e-06,
+      "monetary": -7.944339547916774e-05,
+      "supply_opec": -0.00012453930372859003,
+      "technical": 0.0001157935558166647,
+      "sentiment": -7.979618733988303e-05,
+      "cross_market": 7.37405648947164e-05
+    },
+    "shapley_myerson_divergence": {
+      "geopolitical": 8.358997175313246e-06,
+      "macro_demand": 5.7431690190954186e-05,
+      "monetary": 6.712478161799665e-05,
+      "supply_opec": 3.281333313950353e-05,
+      "technical": 3.273517593470736e-06,
+      "sentiment": 2.475115040036658e-05,
+      "cross_market": 2.0224014386663412e-07
+    },
+    "behaviors": {
+      "geopolitical": "independent",
+      "macro_demand": "independent",
+      "monetary": "independent",
+      "supply_opec": "independent",
+      "technical": "independent",
+      "sentiment": "independent",
+      "cross_market": "independent"
+    },
+    "who": "geopolitical",
+    "when": 2,
+    "what": "independent",
+    "how": [
+      "geopolitical",
+      "supply_opec"
+    ],
+    "influence_edges": 22,
+    "graph_degree": {
+      "geopolitical": 3,
+      "macro_demand": 6,
+      "monetary": 6,
+      "supply_opec": 5,
+      "technical": 8,
+      "sentiment": 8,
+      "cross_market": 8
+    }
+  },
+  {
+    "date": "2020-02-25",
+    "forecast_error": 0.00034252309638883155,
+    "vol_forecast": 0.4746100940379672,
+    "actual_vol": 0.4561027145263013,
+    "shapley": {
+      "geopolitical": 7.5601700680160965e-06,
+      "macro_demand": 5.93862500277937e-05,
+      "monetary": 3.523371928375613e-05,
+      "supply_opec": 4.329760929978355e-05,
+      "technical": 3.8870663331725233e-05,
+      "sentiment": 4.634185961806324e-05,
+      "cross_market": 0.000104601177571362
+    },
+    "myerson": {
+      "geopolitical": -4.37566954634217e-06,
+      "macro_demand": 0.00010803714741353882,
+      "monetary": 7.654417558798879e-05,
+      "supply_opec": 0.00010243868076423066,
+      "technical": 8.800590316368054e-05,
+      "sentiment": 7.233359422761632e-05,
+      "cross_market": 0.00013267571469355804
+    },
+    "shapley_myerson_divergence": {
+      "geopolitical": 1.1935839614358267e-05,
+      "macro_demand": 4.8650897385745124e-05,
+      "monetary": 4.1310456304232656e-05,
+      "supply_opec": 5.914107146444711e-05,
+      "technical": 4.913523983195531e-05,
+      "sentiment": 2.599173460955308e-05,
+      "cross_market": 2.8074537122196034e-05
+    },
+    "behaviors": {
+      "geopolitical": "herding",
+      "macro_demand": "herding",
+      "monetary": "independent",
+      "supply_opec": "independent",
+      "technical": "herding",
+      "sentiment": "independent",
+      "cross_market": "anchored"
+    },
+    "who": "cross_market",
+    "when": 2,
+    "what": "herding",
+    "how": [
+      "cross_market",
+      "macro_demand"
+    ],
+    "influence_edges": 11,
+    "graph_degree": {
+      "geopolitical": 6,
+      "macro_demand": 2,
+      "monetary": 2,
+      "supply_opec": 2,
+      "technical": 2,
+      "sentiment": 2,
+      "cross_market": 6
+    }
+  },
+  {
+    "date": "2020-07-08",
+    "forecast_error": 0.0001725053600818971,
+    "vol_forecast": 0.47436907924870975,
+    "actual_vol": 0.4875032088385188,
+    "shapley": {
+      "geopolitical": -6.226582733887329e-05,
+      "macro_demand": 4.076208367741614e-05,
+      "monetary": -5.5309474002852406e-05,
+      "supply_opec": 5.1540736700975456e-05,
+      "technical": 4.670006466941981e-05,
+      "sentiment": -5.376147807472492e-05,
+      "cross_market": 8.981071193620076e-05
+    },
+    "myerson": {
+      "geopolitical": -6.723755815358934e-05,
+      "macro_demand": 6.20574977465402e-05,
+      "monetary": -5.413047015828661e-05,
+      "supply_opec": 6.494097792781715e-05,
+      "technical": 3.2652689492705665e-05,
+      "sentiment": -6.339235793478993e-05,
+      "cross_market": 8.130377760199907e-05
+    },
+    "shapley_myerson_divergence": {
+      "geopolitical": 4.971730814716052e-06,
+      "macro_demand": 2.129541406912406e-05,
+      "monetary": 1.179003844565796e-06,
+      "supply_opec": 1.3400241226841691e-05,
+      "technical": 1.4047375176714148e-05,
+      "sentiment": 9.630879860065009e-06,
+      "cross_market": 8.506934334201685e-06
+    },
+    "behaviors": {
+      "geopolitical": "independent",
+      "macro_demand": "anchored",
+      "monetary": "herding",
+      "supply_opec": "anchored",
+      "technical": "independent",
+      "sentiment": "herding",
+      "cross_market": "independent"
+    },
+    "who": "cross_market",
+    "when": 2,
+    "what": "independent",
+    "how": [
+      "cross_market",
+      "monetary"
+    ],
+    "influence_edges": 22,
+    "graph_degree": {
+      "geopolitical": 6,
+      "macro_demand": 4,
+      "monetary": 6,
+      "supply_opec": 5,
+      "technical": 8,
+      "sentiment": 6,
+      "cross_market": 9
+    }
+  },
+  {
+    "date": "2021-02-04",
+    "forecast_error": 0.0002391094474112438,
+    "vol_forecast": 0.21228609608393084,
+    "actual_vol": 0.196822931873096,
+    "shapley": {
+      "geopolitical": 8.211314544030801e-05,
+      "macro_demand": -5.331201115509306e-05,
+      "monetary": -3.588117310991113e-05,
+      "supply_opec": -4.344574236568114e-05,
+      "technical": -5.766512258465098e-05,
+      "sentiment": 5.7693062514751505e-05,
+      "cross_market": -4.7842381485723816e-05
+    },
+    "myerson": {
+      "geopolitical": 0.0001067706365911191,
+      "macro_demand": -7.378825275609153e-05,
+      "monetary": -6.961030247394562e-05,
+      "supply_opec": -6.361418156919428e-05,
+      "technical": -6.954362935320484e-05,
+      "sentiment": 5.1204659361926434e-05,
+      "cross_market": -9.552590514166215e-05
+    },
+    "shapley_myerson_divergence": {
+      "geopolitical": 2.4657491150811093e-05,
+      "macro_demand": 2.0476241600998476e-05,
+      "monetary": 3.3729129364034494e-05,
+      "supply_opec": 2.016843920351314e-05,
+      "technical": 1.1878506768553862e-05,
+      "sentiment": 6.488403152825071e-06,
+      "cross_market": 4.768352365593833e-05
+    },
+    "behaviors": {
+      "geopolitical": "independent",
+      "macro_demand": "anchored",
+      "monetary": "anchored",
+      "supply_opec": "anchored",
+      "technical": "anchored",
+      "sentiment": "independent",
+      "cross_market": "anchored"
+    },
+    "who": "geopolitical",
+    "when": 2,
+    "what": "anchored",
+    "how": [
+      "geopolitical"
+    ],
+    "influence_edges": 11,
+    "graph_degree": {
+      "geopolitical": 6,
+      "macro_demand": 2,
+      "monetary": 2,
+      "supply_opec": 2,
+      "technical": 2,
+      "sentiment": 6,
+      "cross_market": 2
+    }
+  },
+  {
+    "date": "2021-12-24",
+    "forecast_error": 0.028065546290324896,
+    "vol_forecast": 0.559075639418279,
+    "actual_vol": 0.3915478915962394,
+    "shapley": {
+      "geopolitical": 0.0010422451583252082,
+      "macro_demand": -0.0004678766209078229,
+      "monetary": -0.0004483348540130958,
+      "supply_opec": -0.00044106818550144263,
+      "technical": -0.0011443992006020761,
+      "sentiment": -0.0006909421294232576,
+      "cross_market": -0.0005301378297804194
+    },
+    "myerson": {
+      "geopolitical": 0.0010065995476075333,
+      "macro_demand": -0.0006762386059036901,
+      "monetary": -0.000353700072016117,
+      "supply_opec": -0.0008450976019674514,
+      "technical": -0.001398961699798566,
+      "sentiment": -0.0006669410151375719,
+      "cross_market": -0.0005450983813330463
+    },
+    "shapley_myerson_divergence": {
+      "geopolitical": 3.564561071767495e-05,
+      "macro_demand": 0.00020836198499586716,
+      "monetary": 9.46347819969788e-05,
+      "supply_opec": 0.0004040294164660088,
+      "technical": 0.00025456249919649,
+      "sentiment": 2.400111428568579e-05,
+      "cross_market": 1.4960551552626981e-05
+    },
+    "behaviors": {
+      "geopolitical": "herding",
+      "macro_demand": "independent",
+      "monetary": "anchored",
+      "supply_opec": "independent",
+      "technical": "independent",
+      "sentiment": "independent",
+      "cross_market": "independent"
+    },
+    "who": "technical",
+    "when": 2,
+    "what": "independent",
+    "how": [
+      "technical",
+      "sentiment"
+    ],
+    "influence_edges": 16,
+    "graph_degree": {
+      "geopolitical": 6,
+      "macro_demand": 4,
+      "monetary": 4,
+      "supply_opec": 4,
+      "technical": 5,
+      "sentiment": 5,
+      "cross_market": 4
+    }
+  },
+  {
+    "date": "2022-07-15",
+    "forecast_error": 0.0006569860325144981,
+    "vol_forecast": 0.6006406596328414,
+    "actual_vol": 0.6262723984055915,
+    "shapley": {
+      "geopolitical": -0.00019894083951300955,
+      "macro_demand": -2.447041326727616e-05,
+      "monetary": 0.00017466879211591873,
+      "supply_opec": -7.855162932647146e-05,
+      "technical": 8.40970546624794e-05,
+      "sentiment": -0.0001340480824553124,
+      "cross_market": 0.00013831867012970863
+    },
+    "myerson": {
+      "geopolitical": -0.0002367264767373077,
+      "macro_demand": -3.7903230108381256e-05,
+      "monetary": 0.000204726597141831,
+      "supply_opec": -5.246038660115791e-05,
+      "technical": 6.996818459813195e-05,
+      "sentiment": -0.00015403459303172173,
+      "cross_market": 0.0001467781889545673
+    },
+    "shapley_myerson_divergence": {
+      "geopolitical": 3.7785637224298154e-05,
+      "macro_demand": 1.3432816841105097e-05,
+      "monetary": 3.005780502591228e-05,
+      "supply_opec": 2.6091242725313547e-05,
+      "technical": 1.4128870064347444e-05,
+      "sentiment": 1.9986510576409326e-05,
+      "cross_market": 8.459518824858667e-06
+    },
+    "behaviors": {
+      "geopolitical": "independent",
+      "macro_demand": "herding",
+      "monetary": "herding",
+      "supply_opec": "independent",
+      "technical": "herding",
+      "sentiment": "herding",
+      "cross_market": "herding"
+    },
+    "who": "geopolitical",
+    "when": 2,
+    "what": "herding",
+    "how": [
+      "geopolitical",
+      "cross_market"
+    ],
+    "influence_edges": 31,
+    "graph_degree": {
+      "geopolitical": 8,
+      "macro_demand": 9,
+      "monetary": 9,
+      "supply_opec": 9,
+      "technical": 10,
+      "sentiment": 8,
+      "cross_market": 9
+    }
+  },
+  {
+    "date": "2023-05-16",
+    "forecast_error": 0.0001625929628142319,
+    "vol_forecast": 0.5073184141368895,
+    "actual_vol": 0.5200696087010953,
+    "shapley": {
+      "geopolitical": -6.309787813089257e-05,
+      "macro_demand": -1.8348891188901634e-05,
+      "monetary": 7.561044751662069e-05,
+      "supply_opec": 2.1564809013905982e-05,
+      "technical": 5.6142820627957113e-05,
+      "sentiment": -5.5821333653360094e-05,
+      "cross_market": -1.853267188989084e-05
+    },
+    "myerson": {
+      "geopolitical": -7.031582772459162e-05,
+      "macro_demand": -3.356859463486221e-05,
+      "monetary": 5.477498509481946e-05,
+      "supply_opec": 2.9802423232044372e-05,
+      "technical": 8.348735035033506e-05,
+      "sentiment": -4.933777547334257e-05,
+      "cross_market": -2.3209525063211637e-05
+    },
+    "shapley_myerson_divergence": {
+      "geopolitical": 7.217949593699052e-06,
+      "macro_demand": 1.5219703445960578e-05,
+      "monetary": 2.083546242180123e-05,
+      "supply_opec": 8.23761421813839e-06,
+      "technical": 2.7344529722377942e-05,
+      "sentiment": 6.4835581800175255e-06,
+      "cross_market": 4.676853173320797e-06
+    },
+    "behaviors": {
+      "geopolitical": "herding",
+      "macro_demand": "herding",
+      "monetary": "independent",
+      "supply_opec": "herding",
+      "technical": "herding",
+      "sentiment": "herding",
+      "cross_market": "herding"
+    },
+    "who": "monetary",
+    "when": 2,
+    "what": "herding",
+    "how": [
+      "technical",
+      "supply_opec"
+    ],
+    "influence_edges": 27,
+    "graph_degree": {
+      "geopolitical": 7,
+      "macro_demand": 6,
+      "monetary": 11,
+      "supply_opec": 6,
+      "technical": 11,
+      "sentiment": 7,
+      "cross_market": 6
+    }
+  },
+  {
+    "date": "2023-07-25",
+    "forecast_error": 2.4531979368808226e-05,
+    "vol_forecast": 0.249182003649267,
+    "actual_vol": 0.244229026830342,
+    "shapley": {
+      "geopolitical": 3.684723410052021e-05,
+      "macro_demand": -2.305302232849677e-05,
+      "monetary": 3.273305625907346e-05,
+      "supply_opec": -2.2810249741475838e-05,
+      "technical": -1.8918965168607008e-05,
+      "sentiment": 1.8742475888430738e-05,
+      "cross_market": -1.5480514768485268e-05
+    },
+    "myerson": {
+      "geopolitical": 4.1626054092102255e-05,
+      "macro_demand": -1.5493632513395154e-05,
+      "monetary": 3.533166783627995e-05,
+      "supply_opec": -1.5080364917138507e-05,
+      "technical": -2.5014316745678268e-05,
+      "sentiment": 2.358875888047641e-05,
+      "cross_market": -2.2097437158491866e-05
+    },
+    "shapley_myerson_divergence": {
+      "geopolitical": 4.778819991582048e-06,
+      "macro_demand": 7.559389815101615e-06,
+      "monetary": 2.5986115772064846e-06,
+      "supply_opec": 7.729884824337331e-06,
+      "technical": 6.09535157707126e-06,
+      "sentiment": 4.846282992045671e-06,
+      "cross_market": 6.616922390006598e-06
+    },
+    "behaviors": {
+      "geopolitical": "herding",
+      "macro_demand": "independent",
+      "monetary": "herding",
+      "supply_opec": "independent",
+      "technical": "independent",
+      "sentiment": "herding",
+      "cross_market": "independent"
+    },
+    "who": "geopolitical",
+    "when": 2,
+    "what": "independent",
+    "how": [
+      "geopolitical",
+      "cross_market"
+    ],
+    "influence_edges": 24,
+    "graph_degree": {
+      "geopolitical": 8,
+      "macro_demand": 6,
+      "monetary": 8,
+      "supply_opec": 6,
+      "technical": 6,
+      "sentiment": 8,
+      "cross_market": 6
+    }
+  },
+  {
+    "date": "2024-03-26",
+    "forecast_error": 8.7729408973274e-06,
+    "vol_forecast": 0.21567055725960485,
+    "actual_vol": 0.2127086421869994,
+    "shapley": {
+      "geopolitical": 1.712853387061711e-05,
+      "macro_demand": -2.207901003958203e-06,
+      "monetary": 1.7243102131289338e-07,
+      "supply_opec": 8.028549874888099e-06,
+      "technical": -1.3699089330382888e-05,
+      "sentiment": 7.6293243631846815e-06,
+      "cross_market": -8.495188447726524e-06
+    },
+    "myerson": {
+      "geopolitical": 2.7622945891753355e-05,
+      "macro_demand": -4.1564599554055895e-06,
+      "monetary": -3.080452749032973e-06,
+      "supply_opec": 5.316379049757961e-06,
+      "technical": -1.2669219178451203e-05,
+      "sentiment": 8.68254408979476e-06,
+      "cross_market": -1.0874139932544653e-05
+    },
+    "shapley_myerson_divergence": {
+      "geopolitical": 1.0494412021136245e-05,
+      "macro_demand": 1.9485589514473864e-06,
+      "monetary": 3.2528837703458664e-06,
+      "supply_opec": 2.7121708251301377e-06,
+      "technical": 1.0298701519316845e-06,
+      "sentiment": 1.0532197266100781e-06,
+      "cross_market": 2.37895148481813e-06
+    },
+    "behaviors": {
+      "geopolitical": "herding",
+      "macro_demand": "herding",
+      "monetary": "anchored",
+      "supply_opec": "independent",
+      "technical": "anchored",
+      "sentiment": "independent",
+      "cross_market": "independent"
+    },
+    "who": "geopolitical",
+    "when": 2,
+    "what": "independent",
+    "how": [
+      "geopolitical",
+      "macro_demand"
+    ],
+    "influence_edges": 21,
+    "graph_degree": {
+      "geopolitical": 9,
+      "macro_demand": 6,
+      "monetary": 4,
+      "supply_opec": 6,
+      "technical": 2,
+      "sentiment": 9,
+      "cross_market": 6
+    }
+  },
+  {
+    "date": "2024-07-12",
+    "forecast_error": 0.0003166859102004297,
+    "vol_forecast": 0.18591643307372743,
+    "actual_vol": 0.1681207619652688,
+    "shapley": {
+      "geopolitical": 0.00015006864646965716,
+      "macro_demand": -3.437987500962097e-05,
+      "monetary": -6.322024353239683e-05,
+      "supply_opec": 1.1259797967358293e-05,
+      "technical": -2.855811652484562e-05,
+      "sentiment": 5.286298456792697e-05,
+      "cross_market": -7.06344255408796e-05
+    },
+    "myerson": {
+      "geopolitical": 0.00014472632842837477,
+      "macro_demand": -5.0914846173434145e-05,
+      "monetary": -7.56665039328721e-05,
+      "supply_opec": 1.8229350828132202e-05,
+      "technical": -4.702279630359714e-05,
+      "sentiment": 6.35853387942111e-05,
+      "cross_market": -8.268621618300712e-05
+    },
+    "shapley_myerson_divergence": {
+      "geopolitical": 5.3423180412823874e-06,
+      "macro_demand": 1.6534971163813174e-05,
+      "monetary": 1.244626040047528e-05,
+      "supply_opec": 6.969552860773909e-06,
+      "technical": 1.8464679778751523e-05,
+      "sentiment": 1.0722354226284132e-05,
+      "cross_market": 1.205179064212753e-05
+    },
+    "behaviors": {
+      "geopolitical": "herding",
+      "macro_demand": "anchored",
+      "monetary": "anchored",
+      "supply_opec": "anchored",
+      "technical": "independent",
+      "sentiment": "independent",
+      "cross_market": "anchored"
+    },
+    "who": "geopolitical",
+    "when": 2,
+    "what": "anchored",
+    "how": [
+      "geopolitical",
+      "technical"
+    ],
+    "influence_edges": 14,
+    "graph_degree": {
+      "geopolitical": 7,
+      "macro_demand": 2,
+      "monetary": 2,
+      "supply_opec": 3,
+      "technical": 5,
+      "sentiment": 7,
+      "cross_market": 2
+    }
+  }
+]

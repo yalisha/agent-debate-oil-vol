@@ -1,0 +1,204 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 970" width="1020" height="970"
+     font-family="PingFang SC, Helvetica Neue, Arial, sans-serif">
+
+<defs>
+  <marker id="ah" markerWidth="11" markerHeight="8" refX="10" refY="4" orient="auto">
+    <polygon points="0 0, 11 4, 0 8" fill="#333"/>
+  </marker>
+  <marker id="ah-g" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+    <polygon points="0 0, 10 3.5, 0 7" fill="#888"/>
+  </marker>
+</defs>
+
+<!-- ============================================================ -->
+<!-- SECTION A: 多Agent辩论系统                                     -->
+<!-- ============================================================ -->
+<rect x="16" y="6" width="988" height="490" rx="7" fill="#f5f5f5" stroke="#bbb" stroke-width="0.8"/>
+<text x="32" y="36" font-size="18" font-weight="bold" fill="#111">A</text>
+<text x="58" y="36" font-size="15" fill="#333">多Agent辩论系统</text>
+
+<!-- ===== 数据源 (7 boxes) ===== -->
+<rect x="55"  y="58" width="118" height="32" rx="3" fill="white" stroke="#666" stroke-width="0.8"/>
+<text x="114" y="79" text-anchor="middle" font-size="12" fill="#333">GDELT事件</text>
+
+<rect x="187" y="58" width="118" height="32" rx="3" fill="white" stroke="#666" stroke-width="0.8"/>
+<text x="246" y="79" text-anchor="middle" font-size="12" fill="#333">PMI / 工业</text>
+
+<rect x="319" y="58" width="118" height="32" rx="3" fill="white" stroke="#666" stroke-width="0.8"/>
+<text x="378" y="79" text-anchor="middle" font-size="12" fill="#333">Fed / DXY</text>
+
+<rect x="451" y="58" width="118" height="32" rx="3" fill="white" stroke="#666" stroke-width="0.8"/>
+<text x="510" y="79" text-anchor="middle" font-size="12" fill="#333">OPEC产量</text>
+
+<rect x="583" y="58" width="118" height="32" rx="3" fill="white" stroke="#666" stroke-width="0.8"/>
+<text x="642" y="79" text-anchor="middle" font-size="12" fill="#333">价格 / 波动率</text>
+
+<rect x="715" y="58" width="118" height="32" rx="3" fill="white" stroke="#666" stroke-width="0.8"/>
+<text x="774" y="79" text-anchor="middle" font-size="12" fill="#333">新闻情绪</text>
+
+<rect x="847" y="58" width="118" height="32" rx="3" fill="white" stroke="#666" stroke-width="0.8"/>
+<text x="906" y="79" text-anchor="middle" font-size="12" fill="#333">VIX / 股指</text>
+
+<!-- 数据源 → Agent 箭头 -->
+<line x1="114" y1="90" x2="114" y2="118" stroke="#666" stroke-width="1" marker-end="url(#ah-g)"/>
+<line x1="246" y1="90" x2="246" y2="118" stroke="#666" stroke-width="1" marker-end="url(#ah-g)"/>
+<line x1="378" y1="90" x2="378" y2="118" stroke="#666" stroke-width="1" marker-end="url(#ah-g)"/>
+<line x1="510" y1="90" x2="510" y2="118" stroke="#666" stroke-width="1" marker-end="url(#ah-g)"/>
+<line x1="642" y1="90" x2="642" y2="118" stroke="#666" stroke-width="1" marker-end="url(#ah-g)"/>
+<line x1="774" y1="90" x2="774" y2="118" stroke="#666" stroke-width="1" marker-end="url(#ah-g)"/>
+<line x1="906" y1="90" x2="906" y2="118" stroke="#666" stroke-width="1" marker-end="url(#ah-g)"/>
+
+<!-- ===== 7个专业化Agent ===== -->
+<rect x="55"  y="122" width="118" height="50" rx="3" fill="#e3e3e3" stroke="#555" stroke-width="1"/>
+<text x="114" y="143" text-anchor="middle" font-size="13" font-weight="bold" fill="#222">地缘政治</text>
+<text x="114" y="162" text-anchor="middle" font-size="10" fill="#666">分析师</text>
+
+<rect x="187" y="122" width="118" height="50" rx="3" fill="#e3e3e3" stroke="#555" stroke-width="1"/>
+<text x="246" y="143" text-anchor="middle" font-size="13" font-weight="bold" fill="#222">宏观需求</text>
+<text x="246" y="162" text-anchor="middle" font-size="10" fill="#666">分析师</text>
+
+<rect x="319" y="122" width="118" height="50" rx="3" fill="#e3e3e3" stroke="#555" stroke-width="1"/>
+<text x="378" y="143" text-anchor="middle" font-size="13" font-weight="bold" fill="#222">货币政策</text>
+<text x="378" y="162" text-anchor="middle" font-size="10" fill="#666">分析师</text>
+
+<rect x="451" y="122" width="118" height="50" rx="3" fill="#e3e3e3" stroke="#555" stroke-width="1"/>
+<text x="510" y="143" text-anchor="middle" font-size="13" font-weight="bold" fill="#222">OPEC供给</text>
+<text x="510" y="162" text-anchor="middle" font-size="10" fill="#666">分析师</text>
+
+<rect x="583" y="122" width="118" height="50" rx="3" fill="#e3e3e3" stroke="#555" stroke-width="1"/>
+<text x="642" y="143" text-anchor="middle" font-size="13" font-weight="bold" fill="#222">技术分析</text>
+<text x="642" y="162" text-anchor="middle" font-size="10" fill="#666">分析师</text>
+
+<rect x="715" y="122" width="118" height="50" rx="3" fill="#e3e3e3" stroke="#555" stroke-width="1"/>
+<text x="774" y="143" text-anchor="middle" font-size="13" font-weight="bold" fill="#222">新闻情绪</text>
+<text x="774" y="162" text-anchor="middle" font-size="10" fill="#666">分析师</text>
+
+<rect x="847" y="122" width="118" height="50" rx="3" fill="#e3e3e3" stroke="#555" stroke-width="1"/>
+<text x="906" y="143" text-anchor="middle" font-size="13" font-weight="bold" fill="#222">跨市场</text>
+<text x="906" y="162" text-anchor="middle" font-size="10" fill="#666">分析师</text>
+
+<!-- Agent 汇聚总线 -->
+<line x1="114" y1="172" x2="114" y2="182" stroke="#555" stroke-width="1"/>
+<line x1="246" y1="172" x2="246" y2="182" stroke="#555" stroke-width="1"/>
+<line x1="378" y1="172" x2="378" y2="182" stroke="#555" stroke-width="1"/>
+<line x1="510" y1="172" x2="510" y2="182" stroke="#555" stroke-width="1"/>
+<line x1="642" y1="172" x2="642" y2="182" stroke="#555" stroke-width="1"/>
+<line x1="774" y1="172" x2="774" y2="182" stroke="#555" stroke-width="1"/>
+<line x1="906" y1="172" x2="906" y2="182" stroke="#555" stroke-width="1"/>
+<line x1="114" y1="182" x2="906" y2="182" stroke="#555" stroke-width="1.3"/>
+<line x1="510" y1="182" x2="510" y2="208" stroke="#333" stroke-width="1.8" marker-end="url(#ah)"/>
+
+<!-- ===== 两轮辩论协议 ===== -->
+<rect x="55" y="214" width="910" height="158" rx="5" fill="white" stroke="#333" stroke-width="1.5"/>
+<text x="510" y="238" text-anchor="middle" font-size="15" font-weight="bold" fill="#222">两轮辩论协议</text>
+
+<!-- 第一轮 -->
+<rect x="78" y="252" width="400" height="104" rx="4" fill="#f2f2f2" stroke="#999" stroke-width="1"/>
+<text x="278" y="278" text-anchor="middle" font-size="14" font-weight="bold" fill="#222">第一轮：独立预测</text>
+<text x="278" y="302" text-anchor="middle" font-size="12" fill="#555">每个Agent基于各自数据源</text>
+<text x="278" y="322" text-anchor="middle" font-size="12" fill="#555">独立预测波动率调整量</text>
+<text x="278" y="344" text-anchor="middle" font-size="13" fill="#444">&#x394;&#x1D62;</text>
+
+<!-- 第二轮 -->
+<rect x="542" y="252" width="400" height="104" rx="4" fill="#f2f2f2" stroke="#999" stroke-width="1"/>
+<text x="742" y="278" text-anchor="middle" font-size="14" font-weight="bold" fill="#222">第二轮：同伴修正</text>
+<text x="742" y="302" text-anchor="middle" font-size="12" fill="#555">观察其他6个Agent的预测和理由</text>
+<text x="742" y="322" text-anchor="middle" font-size="12" fill="#555">修正自己的预测</text>
+<text x="742" y="344" text-anchor="middle" font-size="13" fill="#444">&#x394;&#x1D62; &#x2192; &#x394;&#x2032;&#x1D62;</text>
+
+<!-- 第一轮 → 第二轮 箭头 -->
+<line x1="478" y1="304" x2="542" y2="304" stroke="#333" stroke-width="1.8" marker-end="url(#ah)"/>
+
+<!-- 辩论 → 聚合 箭头 -->
+<line x1="510" y1="372" x2="510" y2="400" stroke="#333" stroke-width="1.8" marker-end="url(#ah)"/>
+
+<!-- ===== 预测输出 ===== -->
+<rect x="175" y="406" width="670" height="70" rx="4" fill="white" stroke="#333" stroke-width="1.5"/>
+<text x="510" y="432" text-anchor="middle" font-size="14" font-weight="bold" fill="#222">预测输出:  &#x03C3;&#x0302;&#x209C;&#x208A;&#x2081; = &#x03C3;&#x209C; + &#x03A3; w&#x1D62; &#x00B7; &#x394;&#x2032;&#x1D62;</text>
+<text x="510" y="458" text-anchor="middle" font-size="12" fill="#555">基准模型:  Persistence  |  HAR  |  GARCH(1,1)  |  Single-Agent</text>
+
+<!-- RQ1 标注 -->
+<text x="854" y="424" font-size="12" font-weight="bold" fill="#888" font-style="italic">RQ1</text>
+
+<!-- ============================================================ -->
+<!-- 连接区域: 辩论记录 + 预测误差 → 分析框架                          -->
+<!-- ============================================================ -->
+
+<!-- 左侧虚线箭头：辩论记录 -->
+<path d="M 340,476 L 340,494 L 250,494 L 250,598" stroke="#888" stroke-width="1.3" stroke-dasharray="6,4" fill="none" marker-end="url(#ah-g)"/>
+<text x="208" y="540" font-size="11" fill="#777" transform="rotate(-90, 208, 540)">辩论记录</text>
+
+<!-- 右侧虚线箭头：预测误差 -->
+<path d="M 680,476 L 680,494 L 770,494 L 770,598" stroke="#888" stroke-width="1.3" stroke-dasharray="6,4" fill="none" marker-end="url(#ah-g)"/>
+<text x="812" y="540" font-size="11" fill="#777" transform="rotate(-90, 812, 540)">预测误差</text>
+
+<!-- ============================================================ -->
+<!-- SECTION B: 行为分析框架                                        -->
+<!-- ============================================================ -->
+<rect x="16" y="550" width="988" height="412" rx="7" fill="#f5f5f5" stroke="#bbb" stroke-width="0.8"/>
+<text x="32" y="578" font-size="18" font-weight="bold" fill="#111">B</text>
+<text x="58" y="578" font-size="15" fill="#333">行为分析框架</text>
+
+<!-- ===== 左侧：行为偏差分类 ===== -->
+<rect x="40" y="600" width="430" height="172" rx="4" fill="white" stroke="#333" stroke-width="1.5"/>
+<text x="255" y="626" text-anchor="middle" font-size="14" font-weight="bold" fill="#222">行为偏差分类</text>
+
+<text x="65"  y="656" font-size="13" font-weight="bold" fill="#333">羊群效应</text>
+<text x="170" y="656" font-size="12" fill="#555">&#x394;&#x2032;&#x1D62; 向多数意见方向调整</text>
+
+<text x="65"  y="684" font-size="13" font-weight="bold" fill="#333">锚定效应</text>
+<text x="170" y="684" font-size="12" fill="#555">|&#x394;&#x2032;&#x1D62; &#x2212; &#x394;&#x1D62;| &#x2248; 0 (几乎不修正)</text>
+
+<text x="65"  y="712" font-size="13" font-weight="bold" fill="#333">独立判断</text>
+<text x="170" y="712" font-size="12" fill="#555">维持或强化少数派立场</text>
+
+<text x="65"  y="740" font-size="13" font-weight="bold" fill="#333">过度自信</text>
+<text x="170" y="740" font-size="12" fill="#555">|&#x394;&#x1D62;| >> 实际波动率变化</text>
+
+<!-- RQ2 标注 -->
+<text x="446" y="760" font-size="12" font-weight="bold" fill="#888" font-style="italic">RQ2</text>
+
+<!-- ===== 右侧：Shapley值归因 ===== -->
+<rect x="550" y="600" width="430" height="172" rx="4" fill="white" stroke="#333" stroke-width="1.5"/>
+<text x="765" y="626" text-anchor="middle" font-size="14" font-weight="bold" fill="#222">Shapley值归因</text>
+
+<text x="575" y="658" font-size="12" fill="#444">&#x2022;  Agent层面的预测误差分解</text>
+<text x="575" y="686" font-size="12" fill="#444">&#x2022;  Monte Carlo近似 (M=500)</text>
+<text x="575" y="714" font-size="12" fill="#444">&#x2022;  反事实模拟：将&#x394;&#x1D62;替换为0</text>
+<text x="575" y="742" font-size="12" fill="#444">&#x2022;  &#x03C6;&#x1D62; = 对集体误差的边际贡献</text>
+
+<!-- RQ4 标注 -->
+<text x="956" y="760" font-size="12" font-weight="bold" fill="#888" font-style="italic">RQ4</text>
+
+<!-- 偏差分类 → Shapley归因 箭头 -->
+<line x1="470" y1="686" x2="550" y2="686" stroke="#333" stroke-width="1.8" marker-end="url(#ah)"/>
+
+<!-- 向下箭头 → 分区间分析 -->
+<line x1="510" y1="772" x2="510" y2="806" stroke="#333" stroke-width="1.8" marker-end="url(#ah)"/>
+
+<!-- ===== 分区间分析 ===== -->
+<rect x="130" y="812" width="760" height="126" rx="4" fill="white" stroke="#333" stroke-width="1.5"/>
+<text x="510" y="838" text-anchor="middle" font-size="14" font-weight="bold" fill="#222">分区间分析</text>
+<text x="510" y="860" text-anchor="middle" font-size="12" fill="#555">调节变量：市场不确定性水平</text>
+
+<!-- 4个区间 -->
+<rect x="158" y="876" width="160" height="44" rx="3" fill="#f0f0f0" stroke="#999" stroke-width="0.8"/>
+<text x="238" y="897" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">低波动</text>
+<text x="238" y="914" text-anchor="middle" font-size="11" fill="#666">&lt;20%</text>
+
+<rect x="334" y="876" width="160" height="44" rx="3" fill="#e8e8e8" stroke="#999" stroke-width="0.8"/>
+<text x="414" y="897" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">正常</text>
+<text x="414" y="914" text-anchor="middle" font-size="11" fill="#666">20&#x2013;35%</text>
+
+<rect x="510" y="876" width="160" height="44" rx="3" fill="#ddd" stroke="#999" stroke-width="0.8"/>
+<text x="590" y="897" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">高波动</text>
+<text x="590" y="914" text-anchor="middle" font-size="11" fill="#666">35&#x2013;55%</text>
+
+<rect x="686" y="876" width="160" height="44" rx="3" fill="#c8c8c8" stroke="#777" stroke-width="1"/>
+<text x="766" y="897" text-anchor="middle" font-size="13" font-weight="bold" fill="#111">危机</text>
+<text x="766" y="914" text-anchor="middle" font-size="11" fill="#444">&gt;55%</text>
+
+<!-- RQ3 标注 -->
+<text x="900" y="834" font-size="12" font-weight="bold" fill="#888" font-style="italic">RQ3</text>
+
+</svg>

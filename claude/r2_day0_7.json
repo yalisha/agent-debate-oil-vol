@@ -1,0 +1,298 @@
+{
+  "2022-02-07": {
+    "geopolitical": {
+      "vol_adjustment": 0.0725,
+      "confidence": 0.65,
+      "evidence": "Revised downward after considering consensus view; peer forecasts suggest more restraint."
+    },
+    "macro": {
+      "vol_adjustment": 0.05,
+      "confidence": 0.58,
+      "evidence": "Maintained position; peer evidence aligns with initial assessment."
+    },
+    "monetary": {
+      "vol_adjustment": 0.002,
+      "confidence": 0.67,
+      "evidence": "Revised upward after seeing peer forecasts; median positioning at 0.0500 supports higher adjustment."
+    },
+    "supply": {
+      "vol_adjustment": 0.065,
+      "confidence": 0.63,
+      "evidence": "Revised downward after considering consensus view; peer forecasts suggest more restraint."
+    },
+    "technical": {
+      "vol_adjustment": 0.0575,
+      "confidence": 0.68,
+      "evidence": "Revised downward after considering consensus view; peer forecasts suggest more restraint."
+    },
+    "sentiment": {
+      "vol_adjustment": 0.0425,
+      "confidence": 0.6,
+      "evidence": "Revised upward after seeing peer forecasts; median positioning at 0.0500 supports higher adjustment."
+    },
+    "cross_market": {
+      "vol_adjustment": -0.004,
+      "confidence": 0.64,
+      "evidence": "Revised upward after seeing peer forecasts; median positioning at 0.0500 supports higher adjustment."
+    }
+  },
+  "2022-02-08": {
+    "geopolitical": {
+      "vol_adjustment": 0.11,
+      "confidence": 0.68,
+      "evidence": "Revised downward after considering consensus view; peer forecasts suggest more restraint."
+    },
+    "macro": {
+      "vol_adjustment": 0.02,
+      "confidence": 0.65,
+      "evidence": "Revised upward after seeing peer forecasts; median positioning at 0.0800 supports higher adjustment."
+    },
+    "monetary": {
+      "vol_adjustment": 0.035,
+      "confidence": 0.62,
+      "evidence": "Revised upward after seeing peer forecasts; median positioning at 0.0800 supports higher adjustment."
+    },
+    "supply": {
+      "vol_adjustment": 0.0875,
+      "confidence": 0.66,
+      "evidence": "Revised downward after considering consensus view; peer forecasts suggest more restraint."
+    },
+    "technical": {
+      "vol_adjustment": 0.08,
+      "confidence": 0.67,
+      "evidence": "Maintained position; peer evidence aligns with initial assessment."
+    },
+    "sentiment": {
+      "vol_adjustment": 0.1025,
+      "confidence": 0.69,
+      "evidence": "Revised downward after considering consensus view; peer forecasts suggest more restraint."
+    },
+    "cross_market": {
+      "vol_adjustment": -0.004,
+      "confidence": 0.63,
+      "evidence": "Revised upward after seeing peer forecasts; median positioning at 0.0800 supports higher adjustment."
+    }
+  },
+  "2022-02-09": {
+    "geopolitical": {
+      "vol_adjustment": 0.1325,
+      "confidence": 0.71,
+      "evidence": "Revised downward after considering consensus view; peer forecasts suggest more restraint."
+    },
+    "macro": {
+      "vol_adjustment": 0.062,
+      "confidence": 0.59,
+      "evidence": "Revised upward after seeing peer forecasts; median positioning at 0.1100 supports higher adjustment."
+    },
+    "monetary": {
+      "vol_adjustment": 0.05,
+      "confidence": 0.61,
+      "evidence": "Revised upward after seeing peer forecasts; median positioning at 0.1100 supports higher adjustment."
+    },
+    "supply": {
+      "vol_adjustment": 0.11,
+      "confidence": 0.64,
+      "evidence": "Maintained position; peer evidence aligns with initial assessment."
+    },
+    "technical": {
+      "vol_adjustment": 0.127,
+      "confidence": 0.73,
+      "evidence": "Revised downward after considering consensus view; peer forecasts suggest more restraint."
+    },
+    "sentiment": {
+      "vol_adjustment": 0.1175,
+      "confidence": 0.71,
+      "evidence": "Revised downward after considering consensus view; peer forecasts suggest more restraint."
+    },
+    "cross_market": {
+      "vol_adjustment": 0.014,
+      "confidence": 0.65,
+      "evidence": "Revised upward after seeing peer forecasts; median positioning at 0.1100 supports higher adjustment."
+    }
+  },
+  "2022-02-10": {
+    "geopolitical": {
+      "vol_adjustment": 0.1375,
+      "confidence": 0.72,
+      "evidence": "Revised downward after considering consensus view; peer forecasts suggest more restraint."
+    },
+    "macro": {
+      "vol_adjustment": 0.034,
+      "confidence": 0.62,
+      "evidence": "Revised upward after seeing peer forecasts; median positioning at 0.1000 supports higher adjustment."
+    },
+    "monetary": {
+      "vol_adjustment": 0.07,
+      "confidence": 0.66,
+      "evidence": "Revised upward after seeing peer forecasts; median positioning at 0.1000 supports higher adjustment."
+    },
+    "supply": {
+      "vol_adjustment": 0.1,
+      "confidence": 0.65,
+      "evidence": "Maintained position; peer evidence aligns with initial assessment."
+    },
+    "technical": {
+      "vol_adjustment": 0.134,
+      "confidence": 0.74,
+      "evidence": "Revised downward after considering consensus view; peer forecasts suggest more restraint."
+    },
+    "sentiment": {
+      "vol_adjustment": 0.1255,
+      "confidence": 0.73,
+      "evidence": "Revised downward after considering consensus view; peer forecasts suggest more restraint."
+    },
+    "cross_market": {
+      "vol_adjustment": 0.085,
+      "confidence": 0.69,
+      "evidence": "Revised upward after seeing peer forecasts; median positioning at 0.1000 supports higher adjustment."
+    }
+  },
+  "2022-02-11": {
+    "geopolitical": {
+      "vol_adjustment": 0.1155,
+      "confidence": 0.81,
+      "evidence": "Revised downward after considering consensus view; peer forecasts suggest more restraint."
+    },
+    "macro": {
+      "vol_adjustment": 0.0825,
+      "confidence": 0.68,
+      "evidence": "Revised upward after seeing peer forecasts; median positioning at 0.0900 supports higher adjustment."
+    },
+    "monetary": {
+      "vol_adjustment": 0.066,
+      "confidence": 0.65,
+      "evidence": "Revised upward after seeing peer forecasts; median positioning at 0.0900 supports higher adjustment."
+    },
+    "supply": {
+      "vol_adjustment": 0.0985,
+      "confidence": 0.75,
+      "evidence": "Revised downward after considering consensus view; peer forecasts suggest more restraint."
+    },
+    "technical": {
+      "vol_adjustment": 0.0645,
+      "confidence": 0.73,
+      "evidence": "Revised upward after seeing peer forecasts; median positioning at 0.0900 supports higher adjustment."
+    },
+    "sentiment": {
+      "vol_adjustment": 0.107,
+      "confidence": 0.78,
+      "evidence": "Revised downward after considering consensus view; peer forecasts suggest more restraint."
+    },
+    "cross_market": {
+      "vol_adjustment": 0.09,
+      "confidence": 0.68,
+      "evidence": "Maintained position; peer evidence aligns with initial assessment."
+    }
+  },
+  "2022-02-14": {
+    "geopolitical": {
+      "vol_adjustment": 0.134,
+      "confidence": 0.85,
+      "evidence": "Revised downward after considering consensus view; peer forecasts suggest more restraint."
+    },
+    "macro": {
+      "vol_adjustment": 0.1,
+      "confidence": 0.7,
+      "evidence": "Maintained position; peer evidence aligns with initial assessment."
+    },
+    "monetary": {
+      "vol_adjustment": 0.076,
+      "confidence": 0.66,
+      "evidence": "Revised upward after seeing peer forecasts; median positioning at 0.1000 supports higher adjustment."
+    },
+    "supply": {
+      "vol_adjustment": 0.117,
+      "confidence": 0.79,
+      "evidence": "Revised downward after considering consensus view; peer forecasts suggest more restraint."
+    },
+    "technical": {
+      "vol_adjustment": 0.082,
+      "confidence": 0.71,
+      "evidence": "Revised upward after seeing peer forecasts; median positioning at 0.1000 supports higher adjustment."
+    },
+    "sentiment": {
+      "vol_adjustment": 0.1255,
+      "confidence": 0.8,
+      "evidence": "Revised downward after considering consensus view; peer forecasts suggest more restraint."
+    },
+    "cross_market": {
+      "vol_adjustment": 0.1,
+      "confidence": 0.7,
+      "evidence": "Maintained position; peer evidence aligns with initial assessment."
+    }
+  },
+  "2022-02-15": {
+    "geopolitical": {
+      "vol_adjustment": 0.1455,
+      "confidence": 0.83,
+      "evidence": "Revised downward after considering consensus view; peer forecasts suggest more restraint."
+    },
+    "macro": {
+      "vol_adjustment": 0.096,
+      "confidence": 0.7,
+      "evidence": "Revised upward after seeing peer forecasts; median positioning at 0.1200 supports higher adjustment."
+    },
+    "monetary": {
+      "vol_adjustment": 0.09,
+      "confidence": 0.68,
+      "evidence": "Revised upward after seeing peer forecasts; median positioning at 0.1200 supports higher adjustment."
+    },
+    "supply": {
+      "vol_adjustment": 0.137,
+      "confidence": 0.82,
+      "evidence": "Revised downward after considering consensus view; peer forecasts suggest more restraint."
+    },
+    "technical": {
+      "vol_adjustment": 0.1115,
+      "confidence": 0.78,
+      "evidence": "Revised upward after seeing peer forecasts; median positioning at 0.1200 supports higher adjustment."
+    },
+    "sentiment": {
+      "vol_adjustment": 0.154,
+      "confidence": 0.84,
+      "evidence": "Revised downward after considering consensus view; peer forecasts suggest more restraint."
+    },
+    "cross_market": {
+      "vol_adjustment": 0.12,
+      "confidence": 0.73,
+      "evidence": "Maintained position; peer evidence aligns with initial assessment."
+    }
+  },
+  "2022-02-16": {
+    "geopolitical": {
+      "vol_adjustment": 0.1355,
+      "confidence": 0.82,
+      "evidence": "Revised downward after considering consensus view; peer forecasts suggest more restraint."
+    },
+    "macro": {
+      "vol_adjustment": 0.095,
+      "confidence": 0.71,
+      "evidence": "Revised upward after seeing peer forecasts; median positioning at 0.1100 supports higher adjustment."
+    },
+    "monetary": {
+      "vol_adjustment": 0.086,
+      "confidence": 0.67,
+      "evidence": "Revised upward after seeing peer forecasts; median positioning at 0.1100 supports higher adjustment."
+    },
+    "supply": {
+      "vol_adjustment": 0.127,
+      "confidence": 0.8,
+      "evidence": "Revised downward after considering consensus view; peer forecasts suggest more restraint."
+    },
+    "technical": {
+      "vol_adjustment": 0.1015,
+      "confidence": 0.75,
+      "evidence": "Revised upward after seeing peer forecasts; median positioning at 0.1100 supports higher adjustment."
+    },
+    "sentiment": {
+      "vol_adjustment": 0.127,
+      "confidence": 0.78,
+      "evidence": "Revised downward after considering consensus view; peer forecasts suggest more restraint."
+    },
+    "cross_market": {
+      "vol_adjustment": 0.11,
+      "confidence": 0.71,
+      "evidence": "Maintained position; peer evidence aligns with initial assessment."
+    }
+  }
+}

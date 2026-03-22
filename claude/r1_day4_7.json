@@ -1,0 +1,150 @@
+{
+  "2022-02-11": {
+    "geopolitical": {
+      "vol_adjustment": 0.12,
+      "confidence": 0.78,
+      "evidence": "Elevated conflict events (7044) with negative tone (-2.23) and moderate Goldstein (0.49) suggest sustained geopolitical risk premium but stabilizing relative to crisis."
+    },
+    "macro": {
+      "vol_adjustment": 0.08,
+      "confidence": 0.65,
+      "evidence": "Shanghai Composite at 96.08 with positive momentum (0.1785) indicates demand recovery, supporting higher vol persistence but momentum moderating from earlier strength."
+    },
+    "monetary": {
+      "vol_adjustment": 0.05,
+      "confidence": 0.62,
+      "evidence": "Fed funds at 0.08% with steeper curve (1.92% 10y) and weakening USD (-0.66% DXY change) suggest accommodative backdrop, but spread compression (0.42) reduces urgency."
+    },
+    "supply": {
+      "vol_adjustment": 0.10,
+      "confidence": 0.72,
+      "evidence": "WTI at $93.10 with strong 5-day momentum (0.0619) and positive 20-day momentum (0.1785) indicate supply tightness narrative, justifying vol expansion above persistence baseline."
+    },
+    "technical": {
+      "vol_adjustment": 0.06,
+      "confidence": 0.70,
+      "evidence": "20d vol 0.2914 vs 60d vol 0.3961 shows compression phase ending; daily return +3.64% implies increased realized vol into forward period."
+    },
+    "sentiment": {
+      "vol_adjustment": 0.11,
+      "confidence": 0.75,
+      "evidence": "Oil mentions spike to 536,685 with declining net cooperation (0.442) and negative tone (-2.23) reflect elevated uncertainty and potential conflict escalation in market pricing."
+    },
+    "cross_market": {
+      "vol_adjustment": 0.09,
+      "confidence": 0.68,
+      "evidence": "VIX elevated at 27.4 (+3.45 change) with flattening spread (0.0 change) suggests risk-off environment partially contained, moderate cross-asset vol spillover expected."
+    }
+  },
+  "2022-02-14": {
+    "geopolitical": {
+      "vol_adjustment": 0.14,
+      "confidence": 0.82,
+      "evidence": "Goldstein improves to 0.70 with lower conflict share (0.26) but oil mentions remain elevated (506,830), suggesting geopolitical risk remains priced in despite diplomatic progress signals."
+    },
+    "macro": {
+      "vol_adjustment": 0.10,
+      "confidence": 0.70,
+      "evidence": "Shanghai reaches 96.37 with strong momentum (0.2229), highest in period, supporting demand-side vol outlook; positive macro momentum offsets some risk concerns."
+    },
+    "monetary": {
+      "vol_adjustment": 0.06,
+      "confidence": 0.63,
+      "evidence": "Fed funds steady at 0.08% but 2y yield at 1.58% reflects market expectations of eventual tightening; USD weakening (-0.98%) supports commodity vol but modestly."
+    },
+    "supply": {
+      "vol_adjustment": 0.12,
+      "confidence": 0.76,
+      "evidence": "WTI at $95.52 peak with 5-day momentum 0.0468 and 20-day 0.2229 sustains supply-side vol narrative; premium holds above persistence baseline given supply uncertainty."
+    },
+    "technical": {
+      "vol_adjustment": 0.07,
+      "confidence": 0.68,
+      "evidence": "20d vol 0.288 with 60d vol 0.3985 and +2.60% daily return shows persistent vol expansion; technical momentum supports higher forward vol."
+    },
+    "sentiment": {
+      "vol_adjustment": 0.13,
+      "confidence": 0.77,
+      "evidence": "Oil mentions remain elevated (506,830) with net cooperation recovering to 0.479; mixed sentiment suggests cautious optimism but unresolved uncertainties keep vol bid."
+    },
+    "cross_market": {
+      "vol_adjustment": 0.10,
+      "confidence": 0.70,
+      "evidence": "VIX at 28.3 (+0.97 change) with spread stable (-0.02) indicates broad risk-on attitude is constrained; cross-market dynamics moderately supportive of vol persistence."
+    }
+  },
+  "2022-02-15": {
+    "geopolitical": {
+      "vol_adjustment": 0.15,
+      "confidence": 0.80,
+      "evidence": "Conflict events spike to 6425 with Goldstein at 0.70 but tone darkens (-2.10), signaling renewed tension; geopolitical volatility risk premium justified at elevated levels."
+    },
+    "macro": {
+      "vol_adjustment": 0.08,
+      "confidence": 0.67,
+      "evidence": "Shanghai drops to 95.99 with momentum falling to 0.1343; demand momentum weakens on pullback, reducing macro support for vol expansion but not eliminating it."
+    },
+    "monetary": {
+      "vol_adjustment": 0.07,
+      "confidence": 0.65,
+      "evidence": "Fed funds stable but yield curve steepens (10y at 2.05%), signaling tightening expectations; USD relatively stable (+0.50%) provides some containment of vol spike."
+    },
+    "supply": {
+      "vol_adjustment": 0.14,
+      "confidence": 0.79,
+      "evidence": "WTI pullback to $92.07 with -3.61% return but 5-day momentum at 0.0308 and 20-day at 0.1343 suggests supply fundamentals remain tight; vol at 0.3125 reflects realized volatility increase."
+    },
+    "technical": {
+      "vol_adjustment": 0.11,
+      "confidence": 0.75,
+      "evidence": "20d vol surges to 0.3125 from 0.2880, approaching 60d vol of 0.4066; large intraday swings and realized vol spike justify higher forward vol forecast."
+    },
+    "sentiment": {
+      "vol_adjustment": 0.16,
+      "confidence": 0.81,
+      "evidence": "Oil mentions peak at 622,143 with net cooperation declining to 0.470; maximum uncertainty and media focus amplify volatility expectations despite price weakness."
+    },
+    "cross_market": {
+      "vol_adjustment": 0.12,
+      "confidence": 0.73,
+      "evidence": "VIX drops to 25.7 (-2.63 change) but spread widens to 0.47 (+0.07), indicating vol concentrated in oil, not broad equities; cross-market decoupling supports oil-specific vol."
+    }
+  },
+  "2022-02-16": {
+    "geopolitical": {
+      "vol_adjustment": 0.14,
+      "confidence": 0.79,
+      "evidence": "Conflict events remain elevated (6448) with Goldstein at 0.72, indicating sustained geopolitical risk narrative; negative tone (-2.06) suggests hazards remain priced in."
+    },
+    "macro": {
+      "vol_adjustment": 0.09,
+      "confidence": 0.68,
+      "evidence": "Shanghai stabilizes at 95.70 with momentum at 0.1372 after prior weakness; modest recovery suggests gradual demand stabilization, supporting moderate vol persistence."
+    },
+    "monetary": {
+      "vol_adjustment": 0.07,
+      "confidence": 0.64,
+      "evidence": "Fed funds still at 0.08% with 2y at 1.52%, curve remaining steep; USD strengthens (+0.57%) which typically moderates commodity vol, but effect limited."
+    },
+    "supply": {
+      "vol_adjustment": 0.13,
+      "confidence": 0.77,
+      "evidence": "WTI bounces to $93.83 with +1.91% return and 5-day momentum 0.0476; 20-day momentum at 0.1372 shows sustained supply-side tightness supporting vol premium."
+    },
+    "technical": {
+      "vol_adjustment": 0.10,
+      "confidence": 0.72,
+      "evidence": "20d vol at 0.3137 with 60d vol 0.4080 shows vol stabilizing at elevated levels; technical bounce after pullback suggests realized vol will remain elevated forward."
+    },
+    "sentiment": {
+      "vol_adjustment": 0.13,
+      "confidence": 0.75,
+      "evidence": "Oil mentions high at 573,707 with net cooperation at 0.473; sustained focus on energy markets with cautious sentiment supports continued vol premium above baseline."
+    },
+    "cross_market": {
+      "vol_adjustment": 0.11,
+      "confidence": 0.71,
+      "evidence": "VIX at 24.3 (-1.41 change) with spread at 0.51 (+0.04), showing broad equity vol declining while oil-specific vol elevated; decoupled dynamics support oil vol persistence."
+    }
+  }
+}

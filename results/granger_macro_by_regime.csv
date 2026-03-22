@@ -1,0 +1,7 @@
+regime,driver,best_lag,f_stat,p_value,significant,n_obs
+Low-Volatility,vix_change,1,11.01075725318236,0.0009164962509450915,True,3049
+Low-Volatility,dxy_return,5,2.311379924914686,0.04165405675502565,True,3049
+Low-Volatility,spread_change,2,2.30729612813071,0.09970416196499571,False,3049
+High-Volatility,vix_change,5,1.1368172728336694,0.3429037341881536,False,183
+High-Volatility,dxy_return,1,0.3272721570580892,0.5679875197468518,False,183
+High-Volatility,spread_change,3,2.0592297414564276,0.10743476464006306,False,183

@@ -1,0 +1,177 @@
+{
+  "metadata": {
+    "round": 1,
+    "days": [
+      12,
+      13,
+      14,
+      15
+    ],
+    "dates": [
+      "2022-02-23",
+      "2022-02-24",
+      "2022-02-25",
+      "2022-02-28"
+    ],
+    "agents": [
+      "geopolitical",
+      "macro",
+      "monetary",
+      "supply",
+      "technical",
+      "sentiment",
+      "cross_market"
+    ],
+    "note": "2022-02-24 is Russia invasion of Ukraine"
+  },
+  "forecasts": {
+    "12": {
+      "geopolitical": {
+        "vol_adjustment": 0.08,
+        "confidence": 0.75,
+        "evidence": "Conflict events rising (7135), escalating tensions warrant elevated vol risk"
+      },
+      "macro": {
+        "vol_adjustment": 0.05,
+        "confidence": 0.65,
+        "evidence": "Shanghai stable at 96.19, moderate economic concern, slight vol expansion"
+      },
+      "monetary": {
+        "vol_adjustment": 0.03,
+        "confidence": 0.6,
+        "evidence": "Spread 0.66, monetary tightening cycle underway but gradual, vol modest"
+      },
+      "supply": {
+        "vol_adjustment": 0.02,
+        "confidence": 0.55,
+        "evidence": "WTI at $92.14 with flat return, supply fundamentals neutral"
+      },
+      "technical": {
+        "vol_adjustment": 0.06,
+        "confidence": 0.7,
+        "evidence": "20d vol 0.3155 elevated, 60d vol 0.396, mean reversion upside risk"
+      },
+      "sentiment": {
+        "vol_adjustment": 0.07,
+        "confidence": 0.72,
+        "evidence": "Tone -2.47 increasingly negative, oil mentions high, sentiment deteriorating"
+      },
+      "cross_market": {
+        "vol_adjustment": 0.09,
+        "confidence": 0.78,
+        "evidence": "VIX 31.0 elevated, equities under stress, vol across markets rising"
+      }
+    },
+    "13": {
+      "geopolitical": {
+        "vol_adjustment": 0.35,
+        "confidence": 0.92,
+        "evidence": "Invasion event 10528 conflicts, 33.8% conflict share, massive geopolitical shock requiring major vol repricing"
+      },
+      "macro": {
+        "vol_adjustment": 0.22,
+        "confidence": 0.85,
+        "evidence": "Shanghai up to 97.14, moderate gain shows some resilience but macro uncertainty extreme"
+      },
+      "monetary": {
+        "vol_adjustment": 0.18,
+        "confidence": 0.8,
+        "evidence": "Spread 0.64, Fed policy now clouded by geopolitical shock, rate uncertainty rising"
+      },
+      "supply": {
+        "vol_adjustment": 0.28,
+        "confidence": 0.88,
+        "evidence": "WTI +0.68%, modest return but Russia supply concerns paramount, vol should spike"
+      },
+      "technical": {
+        "vol_adjustment": 0.25,
+        "confidence": 0.86,
+        "evidence": "20d vol 0.3138, gap up opening day, technical breakdown likely requiring elevated vol"
+      },
+      "sentiment": {
+        "vol_adjustment": 0.32,
+        "confidence": 0.89,
+        "evidence": "Tone -3.06 extremely negative, geopolitical shock in headlines, sentiment capitulation"
+      },
+      "cross_market": {
+        "vol_adjustment": 0.3,
+        "confidence": 0.87,
+        "evidence": "VIX 30.3 but understated by vol spike, risk-off across all markets, correlation breaking down"
+      }
+    },
+    "14": {
+      "geopolitical": {
+        "vol_adjustment": 0.28,
+        "confidence": 0.85,
+        "evidence": "Conflicts still 10785 events, 33.6% share, Ukraine crisis ongoing, vol remains elevated"
+      },
+      "macro": {
+        "vol_adjustment": 0.16,
+        "confidence": 0.78,
+        "evidence": "Shanghai drops to 96.62, macro shock settling in, persistent elevated vol"
+      },
+      "monetary": {
+        "vol_adjustment": 0.14,
+        "confidence": 0.75,
+        "evidence": "Spread 0.63, central banks face dual mandate dilemma, policy uncertainty remains"
+      },
+      "supply": {
+        "vol_adjustment": 0.24,
+        "confidence": 0.82,
+        "evidence": "WTI -1.17%, pullback after spike, supply disruption scenarios still priced in"
+      },
+      "technical": {
+        "vol_adjustment": 0.22,
+        "confidence": 0.8,
+        "evidence": "20d vol 0.3129, elevated regime persists, technical indicators need time to settle"
+      },
+      "sentiment": {
+        "vol_adjustment": 0.26,
+        "confidence": 0.83,
+        "evidence": "Tone -2.8 remains very negative, media coverage intense, sentiment still fearful"
+      },
+      "cross_market": {
+        "vol_adjustment": 0.2,
+        "confidence": 0.79,
+        "evidence": "VIX 27.6 lower but cross-market volatility structure remains disturbed"
+      }
+    },
+    "15": {
+      "geopolitical": {
+        "vol_adjustment": 0.18,
+        "confidence": 0.75,
+        "evidence": "Conflicts decline to 8858, 32% share, some de-escalation signals, vol still elevated"
+      },
+      "macro": {
+        "vol_adjustment": 0.12,
+        "confidence": 0.7,
+        "evidence": "Shanghai 96.71, markets finding bottom, macro vol beginning normalization"
+      },
+      "monetary": {
+        "vol_adjustment": 0.1,
+        "confidence": 0.68,
+        "evidence": "Spread 0.65, Fed path clearer post-shock, uncertainty declining modestly"
+      },
+      "supply": {
+        "vol_adjustment": 0.16,
+        "confidence": 0.72,
+        "evidence": "WTI +4.85% recovery day, supply fundamentals favor higher prices, vol normalizing"
+      },
+      "technical": {
+        "vol_adjustment": 0.14,
+        "confidence": 0.7,
+        "evidence": "20d vol 0.3455 rising again, mean reversion down likely, vol compression ahead"
+      },
+      "sentiment": {
+        "vol_adjustment": 0.15,
+        "confidence": 0.72,
+        "evidence": "Tone -2.35 improving from peak, news flow stabilizing, sentiment recovery beginning"
+      },
+      "cross_market": {
+        "vol_adjustment": 0.13,
+        "confidence": 0.71,
+        "evidence": "VIX 30.1 stabilized, cross-market structure normalizing, volatility mean reversion"
+      }
+    }
+  }
+}

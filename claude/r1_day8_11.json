@@ -1,0 +1,170 @@
+{
+  "day_8": {
+    "date": "2022-02-17",
+    "wti_price": 91.78,
+    "vol_20d": 0.3268,
+    "agents": {
+      "geopolitical": {
+        "vol_adjustment": 0.08,
+        "confidence": 0.85,
+        "evidence": "Conflict events rising to 6733 with elevated goldstein score 0.64 suggests geopolitical risk escalation will sustain volatility well above baseline."
+      },
+      "macro": {
+        "vol_adjustment": -0.02,
+        "confidence": 0.62,
+        "evidence": "Shanghai composite stalled at 95.8 and 20d momentum declining to 0.1197 indicate weakening demand impulse, moderating vol pressure."
+      },
+      "monetary": {
+        "vol_adjustment": 0.05,
+        "confidence": 0.71,
+        "evidence": "Yield curve steeper at 1.49/1.97, DXY stable near 3468 neutral zone, spread compression at 0.48 creates rate volatility transmission to oil."
+      },
+      "supply": {
+        "vol_adjustment": -0.04,
+        "confidence": 0.68,
+        "evidence": "Price down 2.18% with 5d momentum weakening to 0.0217 signals demand destruction phase, oil supply adjustments lag price moves reducing near-term vol."
+      },
+      "technical": {
+        "vol_adjustment": 0.12,
+        "confidence": 0.79,
+        "evidence": "Vol spike to 3268bps with fwd_rv_20d at 0.8394 and VIX jump of 3.82 points indicate volatility clustering, mean reversion incomplete."
+      },
+      "sentiment": {
+        "vol_adjustment": 0.09,
+        "confidence": 0.74,
+        "evidence": "Oil mentions spiking to 628k with tone at -2.28 and net_coop dropping to 0.45 reveal crisis sentiment amplification through media channels."
+      },
+      "cross_market": {
+        "vol_adjustment": 0.06,
+        "confidence": 0.73,
+        "evidence": "VIX at 28.1 with 3.82pt jump and spread compression at 0.48 show equity-oil correlation tightening, equity vol bleeding into commodities."
+      }
+    }
+  },
+  "day_9": {
+    "date": "2022-02-18",
+    "wti_price": 91.26,
+    "vol_20d": 0.323,
+    "agents": {
+      "geopolitical": {
+        "vol_adjustment": 0.11,
+        "confidence": 0.88,
+        "evidence": "Conflict events accelerating to 6995 with conflict_share at 0.289 and goldstein dropping to 0.46 signal deepening crisis with extended duration implications."
+      },
+      "macro": {
+        "vol_adjustment": -0.05,
+        "confidence": 0.58,
+        "evidence": "Shanghai stalled at 96.04 with 20d momentum collapsing to 0.0888 and 5d turning negative at -0.0198 confirms demand recession beginning to bite."
+      },
+      "monetary": {
+        "vol_adjustment": 0.07,
+        "confidence": 0.75,
+        "evidence": "DXY spiking to 3490.76 with 0.66% jump, yield 2y stable but 10y held at 1.92, spread at 0.45 signals tightening regime reinforcing commodity volatility."
+      },
+      "supply": {
+        "vol_adjustment": -0.03,
+        "confidence": 0.65,
+        "evidence": "Price decline continues with mom_5d negative, SPR release discussions gaining traction while OPEC messaging stays hawkish creating supply uncertainty."
+      },
+      "technical": {
+        "vol_adjustment": 0.10,
+        "confidence": 0.81,
+        "evidence": "Vol holding near 3230bps, fwd_rv_20d sustained at 0.839, VIX at 27.8 near session highs suggests volatility regime persistence."
+      },
+      "sentiment": {
+        "vol_adjustment": 0.08,
+        "confidence": 0.77,
+        "evidence": "Oil mentions at 606k, tone darkening to -2.52, net_coop further weakening to 0.422 reflects intensifying crisis narrative in global media."
+      },
+      "cross_market": {
+        "vol_adjustment": 0.07,
+        "confidence": 0.72,
+        "evidence": "VIX at 27.8 with near-zero daily change masks high intraday turbulence, spread contraction to 0.45 shows liquidity stress across risk markets."
+      }
+    }
+  },
+  "day_10": {
+    "date": "2022-02-21",
+    "wti_price": 91.26,
+    "vol_20d": 0.323,
+    "agents": {
+      "geopolitical": {
+        "vol_adjustment": 0.09,
+        "confidence": 0.82,
+        "evidence": "Despite flat price (0% return) and weekend discount, conflict_events remain elevated at 5078, goldstein at 0.57 suggests geopolitical baseline remaining stubbornly high."
+      },
+      "macro": {
+        "vol_adjustment": -0.06,
+        "confidence": 0.61,
+        "evidence": "Shanghai unchanged at 96.04, 20d momentum stalled at 0.0888, 5d momentum turning sharply negative at -0.0446 signals demand weakness persisting through break."
+      },
+      "monetary": {
+        "vol_adjustment": 0.04,
+        "confidence": 0.68,
+        "evidence": "Yields and DXY essentially flat post-weekend, Fed funds unchanged at 8bps, curve shape stable at 0.45 spread indicates holding pattern in rate markets."
+      },
+      "supply": {
+        "vol_adjustment": -0.05,
+        "confidence": 0.63,
+        "evidence": "Zero daily return with flat 5d/20d momentum profile suggests supply-demand equilibrium established, OPEC likely signaling output freeze stance."
+      },
+      "technical": {
+        "vol_adjustment": 0.09,
+        "confidence": 0.76,
+        "evidence": "Vol stable at 3230bps, fwd_rv_20d elevated at 0.8666, VIX unchanged at 27.8 with zero change indicates volatility locked in high regime without new impulses."
+      },
+      "sentiment": {
+        "vol_adjustment": 0.06,
+        "confidence": 0.71,
+        "evidence": "Oil mentions drop to 451k (weekend effect), tone at -2.31 but net_coop recovers slightly to 0.45, crisis narrative still dominant but less acute than Friday."
+      },
+      "cross_market": {
+        "vol_adjustment": 0.05,
+        "confidence": 0.69,
+        "evidence": "VIX flat at 27.8 with no change, spread unchanged at 0.45 suggests weekend risk-off sentiment holding but no new equity vol shocks materializing."
+      }
+    }
+  },
+  "day_11": {
+    "date": "2022-02-22",
+    "wti_price": 92.11,
+    "vol_20d": 0.319,
+    "agents": {
+      "geopolitical": {
+        "vol_adjustment": 0.13,
+        "confidence": 0.89,
+        "evidence": "Geo_events spiking dramatically to 57887 and conflict_events jumping to 6462 with conflict_share at 0.294 signals new crisis phase beginning, volatility will remain elevated."
+      },
+      "macro": {
+        "vol_adjustment": -0.04,
+        "confidence": 0.59,
+        "evidence": "Shanghai holding at 96.03, 20d momentum weakly positive at 0.0783, 5d momentum near-zero at 0.0004 suggests macro dynamics staying in holding pattern."
+      },
+      "monetary": {
+        "vol_adjustment": 0.08,
+        "confidence": 0.73,
+        "evidence": "DXY reversing sharply down by 0.96% to 3457, yield 2y up to 1.56, spread compressed to 0.38, tightening cycle fears resurfacing in rate vol."
+      },
+      "supply": {
+        "vol_adjustment": 0.02,
+        "confidence": 0.64,
+        "evidence": "Price bounces 0.93% with weakening 20d momentum at 0.0783 and 5d near-zero suggest supply-demand balancing act, no clear directional pressure."
+      },
+      "technical": {
+        "vol_adjustment": 0.11,
+        "confidence": 0.80,
+        "evidence": "Vol declining modestly to 3190bps but fwd_rv_20d sustained at 0.8696, VIX rising 1.06pts to 28.8 indicates volatility regime staying elevated with new upside risks."
+      },
+      "sentiment": {
+        "vol_adjustment": 0.10,
+        "confidence": 0.78,
+        "evidence": "Oil mentions spike to 734k (highest in period), tone darkening to -2.47, net_coop diving to 0.412 reveals fresh crisis escalation narrative dominating markets."
+      },
+      "cross_market": {
+        "vol_adjustment": 0.09,
+        "confidence": 0.74,
+        "evidence": "VIX rising to 28.8 with 1.06pt jump, spread compressing to 0.38 indicates new equity vol shock transmitting into oil volatility via correlations."
+      }
+    }
+  }
+}

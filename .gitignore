@@ -1,5 +1,15 @@
 *.pyc
 __pycache__/
 .DS_Store
-results/*checkpoint*
 *.egg-info/
+
+# Checkpoints (intermediate, resumable)
+results/*checkpoint*
+results/*_attribution_*checkpoint*
+
+# Large data files
+data/新gold_prediction_features.csv
+
+# IDE
+.vscode/
+.idea/

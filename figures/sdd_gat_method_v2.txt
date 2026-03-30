@@ -1,0 +1,57 @@
+Architecture figure for a two-stage oil volatility forecasting framework named SDD-GAT. The figure should have TWO main panels arranged TOP-BOTTOM (not left-right):
+
+TOP PANEL: "Stage 1: Multi-Agent Structured Delphi Debate" (light blue background)
+Contains two sub-panels side by side:
+
+Sub-panel (a) "Structured Delphi Debate Protocol" (light green background):
+- Three data input boxes at top: "Market Data (WTI, VIX, DXY)", "GDELT Events", "Historical Volatility"
+- Arrow down to a row of 7 specialist agent boxes: Geopolitical, Macro, Monetary, Supply, Technical, Sentiment, Cross-Market
+- Arrow down to "Round 1: Independent Forecasts" box
+- Bidirectional dashed red arrows labeled "Inter-agent Communication"
+- Arrow down to "Round 2: Revised Forecasts" box
+- Arrow down to three output boxes: "debate_vol", "single_vol", "Agent Features"
+- IMPORTANT: debate_vol and single_vol have a direct arrow going all the way down to panel (d) in Stage 2, bypassing panels (b) and (c). These are the base predictions that feed directly into the output head.
+
+Sub-panel (b) "Feature Engineering" (light pink background):
+- Behavioral Classification: four colored pills showing "Herding" (red), "Anchoring" (blue), "Independent" (green), "Overconfident" (orange). Must show all FOUR labels.
+- Communication Graph: 7 nodes in circle layout with SPARSE edges (only ~10 of 21 possible edges drawn as lines, remaining edges shown as very faint dashed lines). This should look noticeably sparser than a complete graph.
+- Influence Metrics: boxes for "Shapley values", "Myerson values", "Degree centrality"
+- Arrow down to output boxes: "Node Features (7-dim per agent)", "Context Features (9-dim)"
+- NOTE: No "Base Predictions" output here. Base predictions come from panel (a) directly.
+
+Three downward arrows connecting Stage 1 outputs to Stage 2 inputs.
+
+BOTTOM PANEL: "Stage 2: Learned Sparse GAT Meta-Aggregation (SDD-GAT)" (light amber/orange background)
+Contains two sub-panels side by side:
+
+Sub-panel (c) "Multi-Head GAT with Learned Graph" (light yellow background):
+- Learned Sparse Graph visualization: 7 nodes arranged in circle with some edges solid (active, ~10 edges) and remaining edges very faint dashed (inactive), annotation "~16/42 active edges (learned)"
+- Arrow to "Node + Context Features" input
+- "GAT Layer 1 (4 heads, top-k=3)" box with a clearly visible skip connection bypass arrow on the side and "LayerNorm" box below
+- A small annotation "DropEdge 20%" next to or between the GAT layers, indicating random edge dropout during training
+- "GAT Layer 2 (4 heads, top-k=3)" box with a clearly visible skip connection bypass arrow on the side and "LayerNorm" box below
+- "Graph Readout (mean pooling)" box at bottom
+- The skip connections should be clearly visible as curved arrows bypassing each GAT layer
+
+Sub-panel (d) "Regime-Gated Output Head" (light purple/lavender background):
+- Receives input from panel (c) graph readout AND directly from debate_vol/single_vol from panel (a)
+- Three parallel path boxes:
+  1. "Base Head" with Softmax producing w_base
+  2. "Regime Head" with Softmax producing w_regime
+  3. "Regime Gate" with Sigmoid producing g, with "regime features" input arrow
+- All three converge to blend formula: w = (1-g) w_base + g w_regime
+- Weighted combination: w1 * debate_vol + w2 * single_vol + residual
+- A small box showing "Base Predictions [debate_vol, single_vol]" with an arrow coming from panel (a) at the top
+- Final green output box: "Predicted Volatility (forward-looking 20d RV)"
+
+STYLE REQUIREMENTS:
+- Modern flat design, clean academic publication style suitable for International Journal of Forecasting
+- Each sub-panel (a)(b)(c)(d) has distinct pastel background color with rounded corners
+- NO cartoon characters, NO cute elements, NO 3D effects
+- Use geometric shapes: rounded rectangles, circles for graph nodes, clean arrows
+- Color scheme: blue for Stage 1, amber/orange for Stage 2, green for panel (a), pink for panel (b), yellow for panel (c), purple for panel (d)
+- Clean sans-serif font (Helvetica/Arial style)
+- Labeled sub-panels with "(a)", "(b)", "(c)", "(d)" in bold
+- Flow arrows connecting components between panels, with the debate_vol/single_vol bypass arrow clearly visible going from Stage 1 to Stage 2 panel (d)
+- Minimal text, let the visual structure speak
+- High resolution, at least 300 DPI for print quality

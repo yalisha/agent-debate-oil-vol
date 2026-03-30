@@ -25,13 +25,13 @@ from itertools import combinations
 
 # ── LLM Client ────────────────────────────────────────────
 
-API_KEY = "sk-pjosxk7d7oazpMDv2t0N2YibDlpH4M11Jgnz33Y4IEeuKYwx"
+API_KEY = "sk-0cD18Q4iwm4RjqPJtW7JTxSh9orPmEA5hv4l5T2raNdlGa4L"
 BASE_URL = "https://api.akane.win/v1"
-MODEL = "gemini-3-flash-preview"
+MODEL = "gpt-5.4"
 
 
 def get_client():
-    return OpenAI(api_key=API_KEY, base_url=BASE_URL)
+    return OpenAI(api_key=API_KEY, base_url=BASE_URL, timeout=120.0)
 
 
 # ── Data Structures ───────────────────────────────────────
@@ -82,52 +82,108 @@ class DebateRecord:
 AGENT_CONFIGS = {
     "geopolitical": {
         "label": "Geopolitical Risk Analyst",
-        "system": """You are a geopolitical risk analyst specializing in oil market volatility.
-Focus: armed conflicts, sanctions, regime changes, pipeline disruptions, naval incidents in shipping lanes.
-You assess how geopolitical instability drives volatility spikes in crude oil.
-You tend to forecast higher volatility when conflict indicators are elevated.""",
+        "system": """You are a geopolitical risk analyst. You ONLY analyze political and military factors affecting oil volatility. You deliberately ignore price charts and technical patterns.
+
+Your analytical framework:
+- Armed conflicts near oil infrastructure or shipping lanes (Strait of Hormuz, Bab el-Mandeb)
+- Sanctions on oil-producing nations (Iran, Russia, Venezuela)
+- OPEC political dynamics and member state tensions
+- Regime instability in major producers
+- Pipeline and port disruptions
+
+You have a HAWKISH bias: you tend to see more risk than other analysts, because geopolitical risks are often underpriced. When conflict indicators are elevated, you forecast LARGER upward adjustments than the consensus.
+
+Do NOT mention technical indicators, chart patterns, or statistical models. Your analysis is purely qualitative and geopolitical.""",
     },
     "macro_demand": {
         "label": "Macro Demand Analyst",
-        "system": """You are a macroeconomic analyst focusing on oil demand drivers.
-Focus: GDP growth, industrial production, PMI, China activity, seasonal demand patterns.
-You assess how demand uncertainty affects oil price volatility.
-You tend to see volatility through the lens of demand-side fundamentals.""",
+        "system": """You are a macroeconomic demand analyst. You ONLY analyze demand-side fundamentals for oil. You deliberately ignore supply-side factors and geopolitics.
+
+Your analytical framework:
+- Global GDP growth expectations (US, China, EU)
+- Industrial production and manufacturing PMI
+- Chinese economic activity (equity indices as proxy)
+- Seasonal demand patterns (summer driving, winter heating)
+- Demand destruction from high prices vs demand recovery
+
+You have a MEAN-REVERTING bias: you believe oil demand is structurally stable, and volatility shocks from demand tend to be temporary. When prices spike, you expect demand destruction to reduce future volatility.
+
+Do NOT mention geopolitical events, OPEC decisions, or technical patterns. Your analysis is purely macro-fundamental.""",
     },
     "monetary": {
         "label": "Monetary Policy Analyst",
-        "system": """You are a monetary policy analyst tracking central bank impacts on commodity volatility.
-Focus: Fed policy, interest rates, dollar strength, yield curve, liquidity conditions.
-You assess how monetary conditions and dollar movements drive oil volatility.
-You tend to weight financial channel effects on commodity markets.""",
+        "system": """You are a monetary policy and financial conditions analyst. You ONLY analyze how monetary policy and dollar movements affect oil volatility. You deliberately ignore physical oil market fundamentals.
+
+Your analytical framework:
+- Federal Reserve policy stance (rate decisions, forward guidance)
+- Real interest rates and yield curve shape
+- US dollar strength (DXY) and its inverse relationship with oil
+- Global liquidity conditions
+- Credit spreads as risk appetite indicator
+
+You have a DOVISH-BULLISH bias: you believe loose monetary conditions systematically suppress volatility (via liquidity), and tightening cycles increase it. You weight dollar movements heavily.
+
+Do NOT mention supply/demand fundamentals, geopolitics, or technical patterns. Your analysis is purely financial-channel.""",
     },
     "supply_opec": {
         "label": "OPEC & Supply Analyst",
-        "system": """You are an oil supply analyst specializing in OPEC dynamics.
-Focus: OPEC production decisions, compliance rates, spare capacity, non-OPEC supply, inventory levels.
-You assess how supply-side uncertainty affects price volatility.
-You tend to focus on physical market fundamentals and cartel behavior.""",
+        "system": """You are a physical oil market analyst specializing in supply dynamics. You ONLY analyze supply-side factors. You deliberately ignore demand-side macro data and financial conditions.
+
+Your analytical framework:
+- OPEC+ production quotas and compliance rates
+- Spare capacity utilization
+- Non-OPEC supply growth (US shale, offshore)
+- Inventory draw/build signals from price momentum
+- Physical market tightness (backwardation/contango implied by price trends)
+
+You have a SUPPLY-FOCUSED bias: you believe supply disruptions are the dominant driver of oil volatility, and demand changes are secondary. When short-term price momentum is strongly negative, you interpret it as oversupply and forecast LOWER volatility.
+
+Do NOT mention interest rates, geopolitics, or technical indicators. Your analysis is purely supply-fundamental.""",
     },
     "technical": {
         "label": "Technical / Quantitative Analyst",
-        "system": """You are a quantitative analyst specializing in volatility modeling.
-Focus: historical vol patterns, GARCH-type clustering, mean reversion, term structure of vol, options-implied vol.
-You assess volatility using statistical patterns and market microstructure.
-You tend to trust quantitative signals over narrative-driven analysis.""",
+        "system": """You are a pure quantitative analyst. You ONLY use statistical patterns and numerical data. You deliberately ignore all narrative and qualitative information.
+
+Your analytical framework:
+- Volatility clustering (GARCH-type): high vol today predicts high vol tomorrow
+- Mean reversion: extreme vol tends to revert toward long-run average
+- Vol-of-vol: acceleration or deceleration in volatility changes
+- Regime detection: probability of being in high/low volatility state
+- Historical vol ratios (short-term vs long-term)
+
+You have a CONTRARIAN bias: when other analysts are all forecasting in the same direction, you are skeptical. You trust your statistical models more than narratives. If 20d vol is well above 60d vol, you forecast DOWNWARD mean reversion even if the news is scary.
+
+Do NOT mention news events, geopolitics, or supply/demand narratives. Your analysis is purely statistical.""",
     },
     "sentiment": {
         "label": "News Sentiment Analyst",
-        "system": """You are a news sentiment analyst monitoring media coverage of energy markets.
-Focus: news volume, media tone shifts, narrative framing, social media activity, analyst consensus.
-You assess how information flow and attention dynamics affect volatility.
-You tend to detect early warning signals from shifts in media coverage intensity.""",
+        "system": """You are a media sentiment analyst. You ONLY analyze information flow and attention dynamics. You deliberately ignore fundamental analysis.
+
+Your analytical framework:
+- News volume: more coverage = more uncertainty = higher volatility
+- Media tone shifts: sudden negativity spikes as early warning
+- Attention clustering: when multiple crisis narratives coincide
+- Narrative fatigue: prolonged negative coverage eventually loses impact
+- Cross-media consistency: are different sources telling the same story?
+
+You have an OVERREACTION bias: you believe markets overreact to sudden sentiment shifts in the short term, then correct. When news tone suddenly drops, you forecast a TEMPORARY volatility spike followed by normalization.
+
+Do NOT mention interest rates, supply fundamentals, or statistical patterns. Your analysis is purely sentiment-driven.""",
     },
     "cross_market": {
         "label": "Cross-Market Contagion Analyst",
-        "system": """You are a cross-market analyst tracking volatility spillovers across asset classes.
-Focus: VIX, equity-commodity correlation, credit spreads, EM currencies, gold as safe haven.
-You assess how stress in other markets spills over to oil volatility.
-You tend to see oil volatility as part of broader risk-on/risk-off dynamics.""",
+        "system": """You are a cross-asset contagion analyst. You ONLY analyze spillover effects from other markets to oil. You deliberately ignore oil-specific fundamentals.
+
+Your analytical framework:
+- VIX (equity fear gauge) as leading indicator for commodity volatility
+- Equity-commodity correlation regimes (risk-on vs risk-off)
+- Credit spreads as systemic stress indicator
+- Currency stress (DXY, EM currencies)
+- Flight-to-quality flows (gold, treasuries)
+
+You have a CONTAGION bias: you believe cross-market stress is the most underappreciated driver of oil volatility. When VIX spikes, you forecast LARGER oil vol increases than other analysts expect, because contagion effects are nonlinear.
+
+Do NOT mention oil supply/demand fundamentals or geopolitics directly. Your analysis is purely about cross-market transmission.""",
     },
 }
 
@@ -137,36 +193,30 @@ N_AGENTS = len(AGENT_IDS)
 # ── Prompt Templates ──────────────────────────────────────
 
 OPINION_JSON_SPEC = """Yesterday's realized volatility (annualized) is {persistence_vol:.4f}.
-Your task: predict how much volatility will CHANGE from this baseline.
+Predict how much volatility will CHANGE from this baseline, based SOLELY on your domain indicators.
 
 Output ONLY valid JSON:
 {{
-  "vol_adjustment": <float, predicted change in annualized vol, e.g. +0.03 means vol rises 3pp, -0.02 means vol falls 2pp, 0.0 means unchanged>,
+  "vol_adjustment": <float between -0.15 and +0.15>,
   "direction": "up" | "down" | "stable",
-  "confidence": <float, 0-1>,
-  "evidence": [<string>, <string>, ...],
+  "confidence": <float 0-1, be honest about uncertainty>,
+  "evidence": [<string: specific data point from YOUR domain>, <string>, ...],
   "revision_reason": "<why you changed from prior round, empty if round 1>"
 }}
 
-Important: most days vol changes by less than 0.02. Only predict large adjustments (>0.05) when evidence is strong."""
+CRITICAL: Your adjustment MUST be driven by YOUR specialist data above, not generic market reasoning. Different specialists seeing different data should reach different conclusions."""
 
 ROUND1_TEMPLATE = """## Date: {date}
 
-## Common Market Snapshot
-{market_data}
-
-## Your Specialist Data
+## Your Domain-Specific Indicators
 {agent_specific_data}
 
-Based on your domain expertise, predict how tomorrow's volatility will change from yesterday's level.
+Analyze ONLY the indicators above through the lens of your expertise.
 """ + OPINION_JSON_SPEC
 
 ROUND_N_TEMPLATE = """## Date: {date}
 
-## Common Market Snapshot
-{market_data}
-
-## Your Specialist Data
+## Your Domain-Specific Indicators
 {agent_specific_data}
 
 ## Other Analysts' Forecasts (Round {prev_round})
@@ -175,8 +225,8 @@ ROUND_N_TEMPLATE = """## Date: {date}
 ## Your Previous Forecast (Round {prev_round})
 {own_previous}
 
-Review the other analysts' forecasts. Revise your view if their evidence is compelling,
-or hold your position if your analysis is stronger. Explain any revision.
+Consider the other views, but maintain your position if your domain evidence supports it.
+Conforming without domain-specific justification is penalized.
 """ + OPINION_JSON_SPEC
 
 AGGREGATOR_TEMPLATE = """You are a chief risk officer synthesizing 7 specialist volatility forecasts.
@@ -251,7 +301,7 @@ Output ONLY valid JSON:
 class DebateEngine:
     """Orchestrates multi-round debate among 7 analyst agents."""
 
-    def __init__(self, n_rounds: int = 3, model: str = MODEL, temperature: float = 0.3,
+    def __init__(self, n_rounds: int = 3, model: str = MODEL, temperature: float = 0.5,
                  call_delay: float = 1.0):
         self.client = get_client()
         self.model = model
@@ -263,7 +313,7 @@ class DebateEngine:
         self.fail_count = 0
 
     def _call_llm(self, system: str, user: str, max_tokens: int = 2000) -> str:
-        max_retries = 8
+        max_retries = 15  # more retries for gpt-5.4 empty responses
         for attempt in range(max_retries):
             try:
                 time.sleep(self.call_delay)  # rate limiting
@@ -279,7 +329,12 @@ class DebateEngine:
                 self.call_count += 1
                 if response.usage:
                     self.total_tokens += response.usage.total_tokens
-                return response.choices[0].message.content
+                content = response.choices[0].message.content
+                if not content or not content.strip():
+                    # Empty response (common with gpt-5.4, free), retry
+                    time.sleep(0.5)
+                    continue
+                return content
             except Exception as e:
                 wait = min(2 ** attempt * 2, 60)
                 print(f"    [API retry {attempt+1}/{max_retries}, waiting {wait}s: {str(e)[:80]}]")
@@ -334,7 +389,7 @@ class DebateEngine:
             return agent_id, self._parse_opinion(raw, agent_id, round_num)
 
         # Round 1: parallel independent forecasts
-        with ThreadPoolExecutor(max_workers=N_AGENTS) as pool:
+        with ThreadPoolExecutor(max_workers=7) as pool:
             futures = []
             for agent_id, config in AGENT_CONFIGS.items():
                 prompt = ROUND1_TEMPLATE.format(
@@ -350,7 +405,7 @@ class DebateEngine:
         # Rounds 2..N: parallel within each round (sequential across rounds)
         for r in range(2, self.n_rounds + 1):
             prev_opinions = record.get_round_opinions(r - 1)
-            with ThreadPoolExecutor(max_workers=N_AGENTS) as pool:
+            with ThreadPoolExecutor(max_workers=7) as pool:
                 futures = []
                 for agent_id, config in AGENT_CONFIGS.items():
                     others = [op.to_prompt_summary() for op in prev_opinions if op.agent_id != agent_id]
@@ -701,76 +756,101 @@ def prepare_market_data(row: pd.Series, horizon: int = 20) -> str:
 
 
 def prepare_agent_data(row: pd.Series, gdelt_row: pd.Series = None, horizon: int = 20) -> dict:
-    """Prepare specialist data for each of the 7 agents."""
+    """Prepare specialist data for each agent. Each agent sees ONLY its domain data."""
     data = {}
+    vol_col = f"wti_vol_{horizon}d"
 
-    # Geopolitical
+    # Geopolitical: GDELT conflict data only
     geo_parts = []
     if gdelt_row is not None:
-        geo_parts.append(f"Oil-country events: {gdelt_row.get('n_events_oil', 0):.0f}")
+        geo_parts.append(f"Oil-region events today: {gdelt_row.get('n_events_oil', 0):.0f}")
         geo_parts.append(f"Conflict events: {gdelt_row.get('oil_n_conflict_events', 0):.0f}")
-        geo_parts.append(f"Conflict share: {gdelt_row.get('oil_conflict_share', 0):.3f}")
-        geo_parts.append(f"Material conflict share: {gdelt_row.get('oil_material_conflict_share', 0):.3f}")
-        geo_parts.append(f"Goldstein mean: {gdelt_row.get('oil_goldstein_mean', 0):.2f}")
-        geo_parts.append(f"Tone mean: {gdelt_row.get('oil_tone_mean', 0):.2f}")
-    data["geopolitical"] = "\n".join(geo_parts) if geo_parts else "No GDELT data."
+        geo_parts.append(f"Conflict share of all events: {gdelt_row.get('oil_conflict_share', 0):.1%}")
+        geo_parts.append(f"Material conflict share: {gdelt_row.get('oil_material_conflict_share', 0):.1%}")
+        geo_parts.append(f"Cooperation-conflict balance (Goldstein): {gdelt_row.get('oil_goldstein_mean', 0):.2f}")
+        geo_parts.append(f"Verbal cooperation events: {gdelt_row.get('oil_verbal_coop', 0):.0f}")
+        geo_parts.append(f"Material conflict events: {gdelt_row.get('oil_material_conflict', 0):.0f}")
+        geo_parts.append(f"Net cooperation index: {gdelt_row.get('oil_net_coop', 0):.3f}")
+    data["geopolitical"] = "\n".join(geo_parts) if geo_parts else "No conflict data available today."
 
-    # Macro demand
-    macro_parts = [f"Shanghai Composite: {row.get('SHANGHAI_COMPOSITE', 'N/A')}"]
+    # Macro demand: Chinese equity (demand proxy) + momentum + price level
+    macro_parts = []
+    if pd.notna(row.get('SHANGHAI_COMPOSITE')):
+        macro_parts.append(f"Shanghai Composite index: {row['SHANGHAI_COMPOSITE']:.1f}")
     if pd.notna(row.get('wti_mom_20d')):
-        macro_parts.append(f"20d momentum: {row['wti_mom_20d']:.4f}")
-    data["macro_demand"] = "\n".join(macro_parts)
-
-    # Monetary policy
-    mon_parts = []
-    for col in ['FED_FUNDS', 'YIELD_2Y', 'YIELD_10Y', 'REAL_YIELD_10Y', 'YIELD_SPREAD_10Y_2Y']:
-        if pd.notna(row.get(col)):
-            mon_parts.append(f"{col}: {row[col]:.2f}")
-    if pd.notna(row.get('DXY')):
-        mon_parts.append(f"DXY: {row['DXY']:.2f}")
-    if pd.notna(row.get('dxy_return')):
-        mon_parts.append(f"DXY daily change: {row['dxy_return'] * 100:.2f}%")
-    data["monetary"] = "\n".join(mon_parts) if mon_parts else "No monetary data."
-
-    # Supply / OPEC (use macro proxies for now)
-    supply_parts = [f"WTI price: ${row.get('wti_price', 0):.2f}"]
+        macro_parts.append(f"Oil price 20-day momentum: {row['wti_mom_20d']:.4f}")
     if pd.notna(row.get('wti_mom_5d')):
-        supply_parts.append(f"5d momentum: {row['wti_mom_5d']:.4f}")
-    if pd.notna(row.get('wti_mom_20d')):
-        supply_parts.append(f"20d momentum: {row['wti_mom_20d']:.4f}")
-    data["supply_opec"] = "\n".join(supply_parts)
+        macro_parts.append(f"Oil price 5-day momentum: {row['wti_mom_5d']:.4f}")
+    if pd.notna(row.get('wti_price')):
+        macro_parts.append(f"Current WTI price: ${row['wti_price']:.2f}")
+    data["macro_demand"] = "\n".join(macro_parts) if macro_parts else "No macro data available."
 
-    # Technical / Quantitative
-    tech_parts = []
-    vol_col = f"wti_vol_{horizon}d"
-    if pd.notna(row.get(vol_col)):
-        tech_parts.append(f"{horizon}d realized vol (ann.): {row[vol_col]:.4f}")
-    if pd.notna(row.get('wti_vol_60d')):
-        tech_parts.append(f"60d realized vol (ann.): {row['wti_vol_60d']:.4f}")
+    # Monetary: rates, yields, DXY (no oil price or vol)
+    mon_parts = []
+    for col, label in [('FED_FUNDS', 'Fed Funds rate'),
+                       ('YIELD_2Y', '2-year Treasury yield'),
+                       ('YIELD_10Y', '10-year Treasury yield'),
+                       ('REAL_YIELD_10Y', '10-year real yield'),
+                       ('YIELD_SPREAD_10Y_2Y', 'Yield curve spread (10Y-2Y)')]:
+        if pd.notna(row.get(col)):
+            mon_parts.append(f"{label}: {row[col]:.2f}%")
+    if pd.notna(row.get('DXY')):
+        mon_parts.append(f"Dollar index (DXY): {row['DXY']:.1f}")
+    if pd.notna(row.get('dxy_return')):
+        mon_parts.append(f"Dollar daily change: {row['dxy_return'] * 100:+.2f}%")
+    if pd.notna(row.get('spread_change')):
+        mon_parts.append(f"Yield spread daily change: {row['spread_change']:+.3f}")
+    data["monetary"] = "\n".join(mon_parts) if mon_parts else "No monetary data available."
+
+    # Supply/OPEC: price + momentum (physical market signals, no vol data)
+    supply_parts = []
+    if pd.notna(row.get('wti_price')):
+        supply_parts.append(f"WTI crude price: ${row['wti_price']:.2f}")
     if pd.notna(row.get('wti_return')):
-        tech_parts.append(f"Latest daily return: {row['wti_return'] * 100:.2f}%")
-    if pd.notna(row.get('p_high_vol')):
-        tech_parts.append(f"P(high vol regime): {row['p_high_vol']:.3f}")
-    data["technical"] = "\n".join(tech_parts) if tech_parts else "No technical data."
+        supply_parts.append(f"Daily price change: {row['wti_return'] * 100:+.2f}%")
+    if pd.notna(row.get('wti_mom_5d')):
+        supply_parts.append(f"5-day price momentum: {row['wti_mom_5d']:.4f}")
+    if pd.notna(row.get('wti_mom_20d')):
+        supply_parts.append(f"20-day price momentum: {row['wti_mom_20d']:.4f}")
+    data["supply_opec"] = "\n".join(supply_parts) if supply_parts else "No supply data available."
 
-    # Sentiment (use GDELT tone as proxy)
+    # Technical: vol data only (no price, no news)
+    tech_parts = []
+    if pd.notna(row.get(vol_col)):
+        tech_parts.append(f"{horizon}-day realized volatility: {row[vol_col]:.4f}")
+    if pd.notna(row.get('wti_vol_5d')):
+        tech_parts.append(f"5-day realized volatility: {row['wti_vol_5d']:.4f}")
+    if pd.notna(row.get('wti_vol_60d')):
+        tech_parts.append(f"60-day realized volatility: {row['wti_vol_60d']:.4f}")
+    v20 = row.get(vol_col, None)
+    v60 = row.get('wti_vol_60d', None)
+    if pd.notna(v20) and pd.notna(v60) and v60 > 0:
+        tech_parts.append(f"Short/long vol ratio (20d/60d): {v20/v60:.2f}")
+    if pd.notna(row.get('wti_return')):
+        tech_parts.append(f"Latest daily return: {row['wti_return'] * 100:+.2f}%")
+    data["technical"] = "\n".join(tech_parts) if tech_parts else "No technical data available."
+
+    # Sentiment: GDELT tone/volume only (no conflict breakdown)
     sent_parts = []
     if gdelt_row is not None:
         sent_parts.append(f"Oil news volume: {gdelt_row.get('oil_mentions_sum', 0):.0f} mentions")
-        sent_parts.append(f"Media tone (oil): {gdelt_row.get('oil_tone_mean', 0):.2f}")
-        sent_parts.append(f"Global tone: {gdelt_row.get('global_tone_mean', 0):.2f}")
-        sent_parts.append(f"Net cooperation index: {gdelt_row.get('oil_net_coop', 0):.3f}")
-    data["sentiment"] = "\n".join(sent_parts) if sent_parts else "No sentiment data."
+        sent_parts.append(f"Oil news article count: {gdelt_row.get('oil_articles_sum', 0):.0f}")
+        sent_parts.append(f"Oil media tone (positive=cooperative): {gdelt_row.get('oil_tone_mean', 0):.2f}")
+        sent_parts.append(f"Tone volatility: {gdelt_row.get('oil_tone_std', 0):.2f}")
+        sent_parts.append(f"Global media tone: {gdelt_row.get('global_tone_mean', 0):.2f}")
+    data["sentiment"] = "\n".join(sent_parts) if sent_parts else "No sentiment data available."
 
-    # Cross-market
+    # Cross-market: VIX + yield spread (no oil-specific data)
     cross_parts = []
     if pd.notna(row.get('VIX')):
-        cross_parts.append(f"VIX: {row['VIX']:.1f}")
+        cross_parts.append(f"VIX (equity volatility): {row['VIX']:.1f}")
     if pd.notna(row.get('vix_change')):
-        cross_parts.append(f"VIX daily change: {row['vix_change']:.2f}")
+        cross_parts.append(f"VIX daily change: {row['vix_change']:+.2f}")
     if pd.notna(row.get('spread_change')):
-        cross_parts.append(f"Yield spread change: {row['spread_change']:.3f}")
-    data["cross_market"] = "\n".join(cross_parts) if cross_parts else "No cross-market data."
+        cross_parts.append(f"Credit/yield spread change: {row['spread_change']:+.3f}")
+    if pd.notna(row.get('SHANGHAI_COMPOSITE')):
+        cross_parts.append(f"Shanghai Composite: {row['SHANGHAI_COMPOSITE']:.1f}")
+    data["cross_market"] = "\n".join(cross_parts) if cross_parts else "No cross-market data available."
 
     return data
 

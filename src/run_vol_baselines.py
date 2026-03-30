@@ -8,6 +8,7 @@ import pandas as pd
 from pathlib import Path
 from sklearn.linear_model import Ridge, Lasso
 from sklearn.ensemble import GradientBoostingRegressor, RandomForestRegressor
+from walk_forward_utils import LABEL_EMBARGO, rolling_window_bounds
 
 BASE = Path(__file__).parent.parent
 
@@ -16,7 +17,7 @@ def load_data():
     macro = pd.read_csv(BASE / "data/oil_macro_daily.csv", parse_dates=["date"])
     gdelt = pd.read_csv(BASE / "data/gdelt_daily_features.csv", parse_dates=["date"])
     df = macro.merge(gdelt, on="date", how="inner").sort_values("date").reset_index(drop=True)
-    df["fwd_vol_20d"] = df["wti_vol_20d"].shift(-1)
+    df["fwd_vol_20d"] = df["fwd_rv_20d"]  # true forward-looking 20d realized vol
     df = df.dropna(subset=["fwd_vol_20d"]).reset_index(drop=True)
     return df
 
@@ -92,6 +93,7 @@ def main():
     eval_mask = df["date"] >= "2020-01-01"
     eval_indices = df[eval_mask].index.tolist()
     print(f"Eval dates: {len(eval_indices)} (2020-01-01 to {df.date.max().date()})")
+    print(f"Label embargo: {LABEL_EMBARGO} trading days for forward-looking target")
 
     feature_cols = [c for c in feat.columns if feat[c].dtype in [np.float64, np.float32, int]]
     models = get_models()
@@ -103,9 +105,11 @@ def main():
         if i % 200 == 0:
             print(f"  Progress: {i}/{len(eval_indices)}")
 
-        train_start = max(0, idx - train_window)
-        train_df = feat.iloc[train_start:idx].copy()
-        train_y = target.iloc[train_start:idx].copy()
+        train_start, train_end = rolling_window_bounds(idx, train_window)
+        if train_end <= train_start:
+            continue
+        train_df = feat.iloc[train_start:train_end].copy()
+        train_y = target.iloc[train_start:train_end].copy()
 
         # Drop NaN rows
         valid = train_df.notna().all(axis=1) & train_y.notna()

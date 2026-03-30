@@ -1,0 +1,149 @@
+Loaded v3 data: n=2715, date range 2013-04-01 to 2025-05-29
+======================================================================
+STEP 1: FEATURE DIAGNOSTIC
+======================================================================
+
+Sample: n=2715
+
+Baseline correlations:
+  debate_vol vs actual_vol: r=0.4724
+  persist_vol vs actual_vol: r=0.4611
+
+--- Per-agent adj_r3 vs actual_vol ---
+  adj_r3_geopolitical  : r=+0.3497
+  adj_r3_macro_demand  : r=-0.2807
+  adj_r3_monetary      : r=+0.1433
+  adj_r3_supply_opec   : r=-0.2402
+  adj_r3_technical     : r=-0.2366
+  adj_r3_sentiment     : r=+0.3479
+  adj_r3_cross_market  : r=+0.2322
+
+--- Cross-agent summaries ---
+  mean_adj_r3 vs actual_vol: r=+0.1271
+  std_adj_r3 vs actual_vol:  r=+0.4987
+  partial_r(mean_adj_r3, actual_vol | debate_vol): +0.0892
+
+--- Confidence features ---
+  mean_conf_r3 vs actual_vol: r=+0.1826
+  std_conf_r3 vs actual_vol:  r=+0.0867
+
+--- Revision features ---
+  mean_total_revision vs actual_vol: r=+0.3284
+
+--- Incremental R² (in-sample) ---
+  debate_vol only:          R²=0.2231
+  debate_vol + new features: R²=0.2928
+  Incremental R²:           +0.0697
+
+======================================================================
+STEP 2: RIDGE STACKING (GO/NO-GO GATE)
+======================================================================
+
+  Ridge-debate_only:
+    RMSE=0.1445, DM_HAC=-3.506 (p=0.0005)
+    n=2463
+    Regime: low=0.1122 normal=0.1227 elev=0.1675 high=0.1711
+
+  Ridge-cross_agent:
+    RMSE=0.1404, DM_HAC=-4.239 (p=0.0000)
+    n=2463
+    Regime: low=0.1146 normal=0.1218 elev=0.1663 high=0.1376
+
+  Ridge-full_peragent:
+    RMSE=0.1436, DM_HAC=-3.354 (p=0.0008)
+    n=2463
+    Regime: low=0.1142 normal=0.1249 elev=0.1718 high=0.1336
+
+  full_peragent vs debate_only: DM_HAC=-0.327 (p=0.7434)
+
+  cross_agent vs debate_only: DM_HAC=-1.401 (p=0.1611)
+
+  GO/NO-GO: GO (best p=0.0000)
+
+--- Reference baselines (n=2463) ---
+  HAR:        RMSE=0.1600
+  Persistence: RMSE=0.1653
+  GARCH:      RMSE=0.4489
+  Naive debate: RMSE=0.1648
+
+======================================================================
+STEP 3: OPTIMIZED GAT EXPERIMENTS
+======================================================================
+
+  Generating OOF Ridge predictions for anchoring...
+  OOF Ridge: 2463 valid predictions
+
+────────────────────────────────────────────────────────────
+Exp A: Flatten readout + role embedding (T1, 2-base)
+────────────────────────────────────────────────────────────
+  OptGAT-flatten:
+    Per-seed: 0.1474 +/- 0.0011
+    Ensemble: 0.1466, DM_HAC=-2.507 (p=0.0122)
+    Regime:   low=0.1230 normal=0.1217 elev=0.1640 high=0.1941
+
+────────────────────────────────────────────────────────────
+Exp B: Flatten + Ridge anchor (T1, 3-base)
+────────────────────────────────────────────────────────────
+  OptGAT-ridge3:
+    Per-seed: 0.1426 +/- 0.0006
+    Ensemble: 0.1421, DM_HAC=-4.227 (p=0.0000)
+    Regime:   low=0.1211 normal=0.1221 elev=0.1637 high=0.1566
+
+────────────────────────────────────────────────────────────
+Exp C: Hyperparameter grid on OptGAT-ridge3
+────────────────────────────────────────────────────────────
+  Grid-dr0.10:
+    Per-seed: 0.1425 +/- 0.0006
+    Ensemble: 0.1419, DM_HAC=-4.285 (p=0.0000)
+    Regime:   low=0.1215 normal=0.1220 elev=0.1635 high=0.1558
+  Grid-dr0.15:
+    Per-seed: 0.1423 +/- 0.0003
+    Ensemble: 0.1418, DM_HAC=-4.263 (p=0.0000)
+    Regime:   low=0.1207 normal=0.1217 elev=0.1636 high=0.1557
+  Grid-k4:
+    Per-seed: 0.1426 +/- 0.0006
+    Ensemble: 0.1421, DM_HAC=-4.227 (p=0.0000)
+    Regime:   low=0.1211 normal=0.1221 elev=0.1637 high=0.1566
+  Grid-h24:
+    Per-seed: 0.1422 +/- 0.0004
+    Ensemble: 0.1418, DM_HAC=-4.285 (p=0.0000)
+    Regime:   low=0.1202 normal=0.1216 elev=0.1633 high=0.1569
+  Grid-huber:
+    Per-seed: 0.1431 +/- 0.0005
+    Ensemble: 0.1427, DM_HAC=-3.997 (p=0.0001)
+    Regime:   low=0.1283 normal=0.1211 elev=0.1624 high=0.1671
+
+────────────────────────────────────────────────────────────
+Ref: Original mean-pool GAT (T1, 2-base)
+────────────────────────────────────────────────────────────
+  OrigGAT-mean:
+    Per-seed: 0.1465 +/- 0.0005
+    Ensemble: 0.1460, DM_HAC=-2.673 (p=0.0075)
+    Regime:   low=0.1212 normal=0.1213 elev=0.1645 high=0.1893
+
+======================================================================
+PAIRWISE COMPARISONS
+======================================================================
+  flatten vs mean-pool: DM_HAC=0.633 (p=0.5265)
+  ridge-anchor vs no-anchor: DM_HAC=-1.077 (p=0.2815)
+  full-opt vs original: DM_HAC=-0.986 (p=0.3241)
+
+======================================================================
+FULL SUMMARY
+======================================================================
+
+Model                         RMSE   DM_HAC        p   Sig
+───────────────────────────────────────────────────────
+  Ridge-cross_agent         0.1404   -4.239   0.0000   ***
+  Grid-h24                  0.1418   -4.285   0.0000   ***
+  Grid-dr0.15               0.1418   -4.263   0.0000   ***
+  Grid-dr0.10               0.1419   -4.285   0.0000   ***
+  OptGAT-ridge3             0.1421   -4.227   0.0000   ***
+  Grid-k4                   0.1421   -4.227   0.0000   ***
+  Grid-huber                0.1427   -3.997   0.0001   ***
+  Ridge-full_peragent       0.1436   -3.354   0.0008   ***
+  Ridge-debate_only         0.1445   -3.506   0.0005   ***
+  OrigGAT-mean              0.1460   -2.673   0.0075   ***
+  OptGAT-flatten            0.1466   -2.507   0.0122    **
+
+Results saved to /Users/mac/computerscience/17Agent可解释预测/results/leak_free_gat_v3_results.csv

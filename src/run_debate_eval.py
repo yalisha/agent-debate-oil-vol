@@ -136,8 +136,8 @@ def select_eval_dates(df: pd.DataFrame, mode: str) -> list:
     crisis_thresh = 0.45 if horizon >= 20 else 0.55
     low_thresh = 0.25 if horizon >= 20 else 0.20
 
-    # Start from 2020
-    start_mask = df["date"] >= "2020-01-01"
+    # Start from 2013-04 (GDELT availability)
+    start_mask = df["date"] >= "2013-04-01"
     eval_pool = df[start_mask].index.tolist()
 
     if mode == "test":
@@ -235,7 +235,7 @@ def finalize_checkpoint(mode: str, csv_path: Path, jsonl_path: Path):
 
 def run_evaluation(mode: str = "test", n_rounds: int = 2,
                    n_attrib_samples: int = 500, resume: bool = False,
-                   horizon: int = 20):
+                   horizon: int = 20, tag: str = ""):
     """Run walk-forward debate evaluation with checkpoint support."""
     print(f"Loading data (horizon={horizon}d)...")
     df = load_data(horizon=horizon)
@@ -246,8 +246,12 @@ def run_evaluation(mode: str = "test", n_rounds: int = 2,
     eval_indices = select_eval_dates(df, mode)
     print(f"  Mode: {mode}, eval days: {len(eval_indices)}")
 
-    # Checkpoint setup (include horizon in path for h!=20)
-    ckpt_mode = f"{mode}_h{horizon}" if horizon != 20 else mode
+    # Checkpoint setup (include horizon and tag in path)
+    ckpt_mode = mode
+    if tag:
+        ckpt_mode = f"{mode}_{tag}"
+    if horizon != 20:
+        ckpt_mode = f"{ckpt_mode}_h{horizon}"
     csv_path, jsonl_path = get_checkpoint_paths(ckpt_mode)
     completed_dates = set()
     if resume:
@@ -267,7 +271,7 @@ def run_evaluation(mode: str = "test", n_rounds: int = 2,
     import threading
     from concurrent.futures import ThreadPoolExecutor, as_completed
 
-    N_PARALLEL_DAYS = 3  # number of days to evaluate in parallel
+    N_PARALLEL_DAYS = 5  # aggressive parallelism, haiku handles it
     write_lock = threading.Lock()
 
     n_total = len(eval_indices)
@@ -278,8 +282,8 @@ def run_evaluation(mode: str = "test", n_rounds: int = 2,
     def process_one_day(idx):
         """Process a single evaluation day. Thread-safe."""
         # Each thread gets its own engine instances to avoid shared state
-        eng = DebateEngine(n_rounds=n_rounds, temperature=0.3, call_delay=0.0)
-        sa = SingleAgentBaseline(temperature=0.3, call_delay=0.0)
+        eng = DebateEngine(n_rounds=n_rounds, temperature=0.3, call_delay=0.5)
+        sa = SingleAgentBaseline(temperature=0.3, call_delay=0.5)
         ae = AttributionEngine(n_samples=n_attrib_samples)
         iv = InterventionExperiment(ae)
 
@@ -363,6 +367,26 @@ def run_evaluation(mode: str = "test", n_rounds: int = 2,
                 result[f"shapley_{agent_id}"] = report["shapley"][agent_id]
                 result[f"myerson_{agent_id}"] = report["myerson"][agent_id]
                 result[f"behavior_{agent_id}"] = report["behaviors"][agent_id]
+
+            # Per-agent per-round features (leak-free at prediction time)
+            for agent_id in AGENT_IDS:
+                for r in range(1, n_rounds + 1):
+                    op = record.get_opinion(agent_id, r)
+                    result[f"adj_r{r}_{agent_id}"] = op.vol_adjustment if op else 0.0
+                    result[f"conf_r{r}_{agent_id}"] = op.confidence if op else 0.5
+                # Derived revision features
+                ops = [record.get_opinion(agent_id, r) for r in range(1, n_rounds + 1)]
+                valid_ops = [o for o in ops if o is not None]
+                if len(valid_ops) >= 2:
+                    result[f"revision_r12_{agent_id}"] = abs(valid_ops[1].vol_adjustment - valid_ops[0].vol_adjustment)
+                    if len(valid_ops) >= 3:
+                        result[f"revision_r23_{agent_id}"] = abs(valid_ops[2].vol_adjustment - valid_ops[1].vol_adjustment)
+                        result[f"total_revision_{agent_id}"] = abs(valid_ops[-1].vol_adjustment - valid_ops[0].vol_adjustment)
+                        result[f"conf_trend_{agent_id}"] = valid_ops[-1].confidence - valid_ops[0].confidence
+                    else:
+                        result[f"total_revision_{agent_id}"] = abs(valid_ops[1].vol_adjustment - valid_ops[0].vol_adjustment)
+                        result[f"conf_trend_{agent_id}"] = valid_ops[1].confidence - valid_ops[0].confidence
+                result[f"agg_weight_{agent_id}"] = record.aggregator_weights.get(agent_id, 1.0 / len(AGENT_IDS))
 
             with write_lock:
                 append_result_csv(csv_path, result)
@@ -516,8 +540,10 @@ if __name__ == "__main__":
                         help="Volatility horizon in days (5 or 20)")
     parser.add_argument("--resume", action="store_true",
                         help="Resume from checkpoint (skip already-evaluated dates)")
+    parser.add_argument("--tag", default="",
+                        help="Tag for output filenames (e.g. 'v2')")
     args = parser.parse_args()
 
     run_evaluation(mode=args.mode, n_rounds=args.rounds,
                    n_attrib_samples=args.attrib_samples, resume=args.resume,
-                   horizon=args.horizon)
+                   horizon=args.horizon, tag=args.tag)

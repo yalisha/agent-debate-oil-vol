@@ -1,0 +1,51 @@
+Architecture figure for a two-stage oil volatility forecasting framework. The figure should have TWO main panels arranged TOP-BOTTOM (not left-right):
+
+TOP PANEL: "Stage 1: Multi-Agent Structured Delphi Debate" (light blue background)
+Contains two sub-panels side by side:
+
+Sub-panel (a) "Structured Delphi Debate Protocol" (light green background):
+- Three data input boxes at top: "Market Data (WTI, VIX, DXY)", "GDELT Events", "Historical Volatility"
+- Arrow down to a row of 7 specialist agent boxes: Geopolitical, Macro, Monetary, Supply, Technical, Sentiment, Cross-Market
+- Arrow down to "Round 1: Independent Forecasts" box
+- Bidirectional dashed red arrows labeled "Inter-agent Communication"
+- Arrow down to "Round 2: Revised Forecasts" box
+- Arrow down to three output boxes: "debate_vol", "single_vol", "Agent Features"
+
+Sub-panel (b) "Attribution & Feature Extraction" (light pink background):
+- Shapley Attribution: horizontal bar chart showing 7 agents' contribution values
+- Behavior Labels: three colored pills showing "Herding", "Anchoring", "Independent"
+- Communication Graph: 7 nodes in circle layout with some edges drawn (sparse graph)
+- Influence Metrics: boxes for "Shapley values", "Myerson values", "Degree centrality"
+- Arrow down to output boxes: "Node Features", "Context Features", "Base Predictions"
+
+Three downward arrows connecting Stage 1 to Stage 2.
+
+BOTTOM PANEL: "Stage 2: Learned Sparse GAT Meta-Aggregation" (light amber/orange background)
+Contains two sub-panels side by side:
+
+Sub-panel (c) "Multi-Head GAT with Learned Graph" (light yellow background):
+- Learned Sparse Graph visualization: 7 nodes arranged in circle with some edges solid (active) and some dashed/absent, annotation "~16/42 active edges"
+- Arrow to "Node + Context Features" input
+- "GAT Layer 1 (4 heads)" box with skip connection bypass arrow and "LayerNorm"
+- "GAT Layer 2 (4 heads)" box with skip connection bypass arrow and "LayerNorm"
+- "Graph Readout" box at bottom
+
+Sub-panel (d) "Regime-Gated Output Head" (light purple/lavender background):
+- Three parallel path boxes:
+  1. "Base Head" with Softmax producing w_base
+  2. "Regime Head" with Softmax producing w_regime
+  3. "Regime Gate" with Sigmoid producing g, with "regime features" input
+- All three converge to blend formula: w = (1-g) w_base + g w_regime
+- Weighted combination: w1*debate_vol + w2*single_vol + residual
+- Final green output box: "Predicted Volatility (forward-looking 20d RV)"
+
+STYLE REQUIREMENTS:
+- Modern flat design, clean academic publication style for ESWA journal
+- Each sub-panel (a)(b)(c)(d) has distinct pastel background color with rounded corners
+- NO cartoon characters, NO cute elements, NO 3D effects
+- Use geometric shapes: rounded rectangles, circles for graph nodes, clean arrows
+- Color scheme: blue for Stage 1, amber/orange for Stage 2, green for panel (a), pink for panel (b), yellow for panel (c), purple for panel (d)
+- Clean sans-serif font (Helvetica/Arial style)
+- Labeled sub-panels with "(a)", "(b)", "(c)", "(d)" in bold
+- Flow arrows connecting components between panels
+- Minimal text, let the visual structure speak

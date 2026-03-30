@@ -1,0 +1,414 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 920" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <!-- Arrow markers -->
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#374151"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#3B82F6"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#059669"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arrow-amber" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#D97706"/>
+    </marker>
+  </defs>
+
+  <!-- ================================================================ -->
+  <!-- STAGE 1: Multi-Agent Structured Delphi Debate                    -->
+  <!-- ================================================================ -->
+  <g id="stage1">
+    <rect x="15" y="10" width="1170" height="460" rx="10" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1.5"/>
+    <text x="600" y="32" text-anchor="middle" font-size="14" font-weight="bold" fill="#1E40AF">Stage 1: Multi-Agent Structured Delphi Debate</text>
+
+    <!-- ====== Panel (a): Diverse Agent Debate Protocol ====== -->
+    <g id="panel-a">
+      <rect x="25" y="42" width="680" height="420" rx="8" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.2"/>
+      <text x="42" y="62" font-size="11.5" font-weight="bold" fill="#065F46">(a) Diverse Agent Debate Protocol</text>
+
+      <!-- === Three Data Source Boxes === -->
+      <rect x="60" y="74" width="170" height="36" rx="5" fill="#FEE2E2" stroke="#F87171" stroke-width="1"/>
+      <text x="145" y="90" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#991B1B">GDELT Conflict Data</text>
+      <text x="145" y="102" text-anchor="middle" font-size="7.5" fill="#B91C1C">geopolitical events, tone</text>
+
+      <rect x="270" y="74" width="180" height="36" rx="5" fill="#DBEAFE" stroke="#60A5FA" stroke-width="1"/>
+      <text x="360" y="90" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1E40AF">Macro &amp; Monetary Data</text>
+      <text x="360" y="102" text-anchor="middle" font-size="7.5" fill="#2563EB">VIX, DXY, rates, spreads</text>
+
+      <rect x="490" y="74" width="180" height="36" rx="5" fill="#D1FAE5" stroke="#34D399" stroke-width="1"/>
+      <text x="580" y="90" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#065F46">Price &amp; Technical Data</text>
+      <text x="580" y="102" text-anchor="middle" font-size="7.5" fill="#047857">WTI price, returns, vol</text>
+
+      <!-- === Dashed lines from data to agents (DATA SEPARATION) === -->
+      <!-- GDELT -> Geopolitical (agent 1) -->
+      <line x1="105" y1="110" x2="75" y2="155" stroke="#F87171" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+      <!-- GDELT -> Sentiment (agent 6) -->
+      <line x1="185" y1="110" x2="535" y2="155" stroke="#F87171" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+
+      <!-- Macro -> Macro Demand (agent 2) -->
+      <line x1="310" y1="110" x2="170" y2="155" stroke="#60A5FA" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+      <!-- Macro -> Monetary (agent 3) -->
+      <line x1="350" y1="110" x2="265" y2="155" stroke="#60A5FA" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+      <!-- Macro -> Cross-Market (agent 7) -->
+      <line x1="410" y1="110" x2="630" y2="155" stroke="#60A5FA" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+
+      <!-- Price -> Supply/OPEC (agent 4) -->
+      <line x1="540" y1="110" x2="355" y2="155" stroke="#34D399" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+      <!-- Price -> Technical (agent 5) -->
+      <line x1="600" y1="110" x2="445" y2="155" stroke="#34D399" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+
+      <!-- === 7 Specialist Agent Boxes === -->
+      <!-- Agent 1: Geopolitical -->
+      <rect x="40" y="160" width="86" height="28" rx="4" fill="#FFF" stroke="#374151" stroke-width="0.9"/>
+      <text x="83" y="176" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#1F2937">Geopolitical</text>
+      <text x="83" y="198" text-anchor="middle" font-size="7" fill="#9CA3AF" font-style="italic">hawkish</text>
+
+      <!-- Agent 2: Macro Demand -->
+      <rect x="134" y="160" width="86" height="28" rx="4" fill="#FFF" stroke="#374151" stroke-width="0.9"/>
+      <text x="177" y="176" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#1F2937">Macro Demand</text>
+      <text x="177" y="198" text-anchor="middle" font-size="7" fill="#9CA3AF" font-style="italic">mean-reverting</text>
+
+      <!-- Agent 3: Monetary -->
+      <rect x="228" y="160" width="86" height="28" rx="4" fill="#FFF" stroke="#374151" stroke-width="0.9"/>
+      <text x="271" y="176" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#1F2937">Monetary</text>
+      <text x="271" y="198" text-anchor="middle" font-size="7" fill="#9CA3AF" font-style="italic">dovish</text>
+
+      <!-- Agent 4: Supply/OPEC -->
+      <rect x="322" y="160" width="86" height="28" rx="4" fill="#FFF" stroke="#374151" stroke-width="0.9"/>
+      <text x="365" y="176" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#1F2937">Supply/OPEC</text>
+      <text x="365" y="198" text-anchor="middle" font-size="7" fill="#9CA3AF" font-style="italic">supply-focused</text>
+
+      <!-- Agent 5: Technical -->
+      <rect x="416" y="160" width="86" height="28" rx="4" fill="#FFF" stroke="#374151" stroke-width="0.9"/>
+      <text x="459" y="176" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#1F2937">Technical</text>
+      <text x="459" y="198" text-anchor="middle" font-size="7" fill="#9CA3AF" font-style="italic">contrarian</text>
+
+      <!-- Agent 6: Sentiment -->
+      <rect x="510" y="160" width="86" height="28" rx="4" fill="#FFF" stroke="#374151" stroke-width="0.9"/>
+      <text x="553" y="176" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#1F2937">Sentiment</text>
+      <text x="553" y="198" text-anchor="middle" font-size="7" fill="#9CA3AF" font-style="italic">momentum</text>
+
+      <!-- Agent 7: Cross-Market -->
+      <rect x="604" y="160" width="86" height="28" rx="4" fill="#FFF" stroke="#374151" stroke-width="0.9"/>
+      <text x="647" y="176" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#1F2937">Cross-Market</text>
+      <text x="647" y="198" text-anchor="middle" font-size="7" fill="#9CA3AF" font-style="italic">correlation</text>
+
+      <!-- === Three Debate Rounds === -->
+      <!-- Round 1 -->
+      <rect x="100" y="212" width="530" height="30" rx="5" fill="#FFF" stroke="#059669" stroke-width="1"/>
+      <text x="365" y="231" text-anchor="middle" font-size="10" font-weight="bold" fill="#065F46">Round 1: Independent Forecasts</text>
+
+      <!-- Arrow R1 -> R2 -->
+      <line x1="365" y1="242" x2="365" y2="256" stroke="#374151" stroke-width="1" marker-end="url(#arrow)"/>
+
+      <!-- Round 2 with bidirectional arrows -->
+      <rect x="100" y="260" width="530" height="30" rx="5" fill="#FFF" stroke="#D97706" stroke-width="1"/>
+      <text x="365" y="279" text-anchor="middle" font-size="10" font-weight="bold" fill="#92400E">Round 2: Informed Revision</text>
+      <!-- Bidirectional exchange arrows -->
+      <path d="M 130,268 C 160,254 200,254 230,268" fill="none" stroke="#D97706" stroke-width="0.8" stroke-dasharray="3,2"/>
+      <path d="M 280,268 C 310,254 350,254 380,268" fill="none" stroke="#D97706" stroke-width="0.8" stroke-dasharray="3,2"/>
+      <path d="M 430,268 C 460,254 500,254 530,268" fill="none" stroke="#D97706" stroke-width="0.8" stroke-dasharray="3,2"/>
+      <text x="660" y="274" font-size="7" fill="#92400E">opinion exchange</text>
+
+      <!-- Arrow R2 -> R3 -->
+      <line x1="365" y1="290" x2="365" y2="304" stroke="#374151" stroke-width="1" marker-end="url(#arrow)"/>
+
+      <!-- Round 3 -->
+      <rect x="100" y="308" width="530" height="30" rx="5" fill="#FFF" stroke="#7C3AED" stroke-width="1"/>
+      <text x="365" y="327" text-anchor="middle" font-size="10" font-weight="bold" fill="#5B21B6">Round 3: Final Position</text>
+
+      <!-- Conformity penalized note -->
+      <rect x="105" y="342" width="135" height="18" rx="3" fill="#FEF3C7" stroke="#F59E0B" stroke-width="0.8"/>
+      <text x="172" y="354" text-anchor="middle" font-size="7.5" font-weight="bold" fill="#92400E">Conformity penalized</text>
+
+      <!-- Output: Naive Aggregation -->
+      <line x1="365" y1="338" x2="365" y2="370" stroke="#374151" stroke-width="1" marker-end="url(#arrow)"/>
+      <rect x="250" y="374" width="230" height="32" rx="5" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.2"/>
+      <text x="365" y="390" text-anchor="middle" font-size="9" font-weight="bold" fill="#1E40AF">Naive Aggregation</text>
+      <text x="365" y="401" text-anchor="middle" font-size="8" fill="#3B82F6">persist_vol + conf_weighted_mean(adj)</text>
+
+      <!-- Output labels -->
+      <rect x="288" y="416" width="95" height="20" rx="4" fill="#BFDBFE" stroke="#3B82F6" stroke-width="0.8"/>
+      <text x="335" y="430" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#1E40AF">debate_vol</text>
+      <rect x="395" y="416" width="95" height="20" rx="4" fill="#BFDBFE" stroke="#3B82F6" stroke-width="0.8"/>
+      <text x="442" y="430" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#1E40AF">persist_vol</text>
+    </g>
+
+    <!-- ====== Panel (b): Per-Agent Feature Extraction ====== -->
+    <g id="panel-b">
+      <rect x="715" y="42" width="460" height="420" rx="8" fill="#FFF1F2" stroke="#FDA4AF" stroke-width="1.2"/>
+      <text x="732" y="62" font-size="11.5" font-weight="bold" fill="#9F1239">(b) Per-Agent Feature Extraction</text>
+
+      <!-- Per-agent features box -->
+      <rect x="730" y="78" width="430" height="70" rx="5" fill="#FFF" stroke="#FDA4AF" stroke-width="0.9"/>
+      <text x="945" y="95" text-anchor="middle" font-size="10" font-weight="bold" fill="#9F1239">Per-Agent Features (6-dim per agent)</text>
+      <text x="945" y="112" text-anchor="middle" font-size="8.5" fill="#4B5563">adj_r3    conf_r3    total_revision</text>
+      <text x="945" y="126" text-anchor="middle" font-size="8.5" fill="#4B5563">conf_trend    revision_r23    agg_weight</text>
+
+      <!-- Arrow down -->
+      <line x1="945" y1="148" x2="945" y2="166" stroke="#374151" stroke-width="1" marker-end="url(#arrow)"/>
+
+      <!-- Cross-agent statistics -->
+      <rect x="730" y="170" width="430" height="115" rx="5" fill="#FFF" stroke="#FDA4AF" stroke-width="0.9"/>
+      <text x="945" y="188" text-anchor="middle" font-size="10" font-weight="bold" fill="#9F1239">Cross-Agent Statistics</text>
+
+      <!-- Disagreement highlight box - KEY with accent border -->
+      <rect x="748" y="198" width="394" height="38" rx="4" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+      <text x="945" y="214" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#92400E">Disagreement: std of R3 adjustments</text>
+      <text x="945" y="228" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#B45309">partial r = 0.73 with actual volatility</text>
+
+      <!-- Other stats -->
+      <rect x="780" y="247" width="140" height="16" rx="3" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="0.6"/>
+      <text x="850" y="259" text-anchor="middle" font-size="9" fill="#4B5563">Mean adjustment</text>
+
+      <rect x="940" y="247" width="140" height="16" rx="3" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="0.6"/>
+      <text x="1010" y="259" text-anchor="middle" font-size="9" fill="#4B5563">Confidence dispersion</text>
+
+      <!-- Arrow down -->
+      <line x1="945" y1="285" x2="945" y2="303" stroke="#374151" stroke-width="1" marker-end="url(#arrow)"/>
+
+      <!-- Feature Matrix visualization -->
+      <rect x="730" y="307" width="430" height="85" rx="5" fill="#FFF" stroke="#FDA4AF" stroke-width="0.9"/>
+      <text x="945" y="325" text-anchor="middle" font-size="10" font-weight="bold" fill="#9F1239">Feature Matrices</text>
+
+      <!-- Node features grid representation -->
+      <rect x="760" y="335" width="140" height="48" rx="3" fill="#E0E7FF" stroke="#818CF8" stroke-width="0.8"/>
+      <!-- Grid lines for 7x6 matrix -->
+      <line x1="780" y1="335" x2="780" y2="383" stroke="#818CF8" stroke-width="0.3"/>
+      <line x1="800" y1="335" x2="800" y2="383" stroke="#818CF8" stroke-width="0.3"/>
+      <line x1="820" y1="335" x2="820" y2="383" stroke="#818CF8" stroke-width="0.3"/>
+      <line x1="840" y1="335" x2="840" y2="383" stroke="#818CF8" stroke-width="0.3"/>
+      <line x1="860" y1="335" x2="860" y2="383" stroke="#818CF8" stroke-width="0.3"/>
+      <line x1="880" y1="335" x2="880" y2="383" stroke="#818CF8" stroke-width="0.3"/>
+      <line x1="760" y1="342" x2="900" y2="342" stroke="#818CF8" stroke-width="0.3"/>
+      <line x1="760" y1="349" x2="900" y2="349" stroke="#818CF8" stroke-width="0.3"/>
+      <line x1="760" y1="356" x2="900" y2="356" stroke="#818CF8" stroke-width="0.3"/>
+      <line x1="760" y1="363" x2="900" y2="363" stroke="#818CF8" stroke-width="0.3"/>
+      <line x1="760" y1="370" x2="900" y2="370" stroke="#818CF8" stroke-width="0.3"/>
+      <line x1="760" y1="377" x2="900" y2="377" stroke="#818CF8" stroke-width="0.3"/>
+      <text x="830" y="398" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#4338CA">Node Features (7 x 6)</text>
+
+      <!-- Context features vector -->
+      <rect x="930" y="335" width="210" height="48" rx="3" fill="#FCE7F3" stroke="#F472B6" stroke-width="0.8"/>
+      <!-- Vector representation -->
+      <line x1="945" y1="335" x2="945" y2="383" stroke="#F472B6" stroke-width="0.3"/>
+      <line x1="960" y1="335" x2="960" y2="383" stroke="#F472B6" stroke-width="0.3"/>
+      <line x1="975" y1="335" x2="975" y2="383" stroke="#F472B6" stroke-width="0.3"/>
+      <line x1="990" y1="335" x2="990" y2="383" stroke="#F472B6" stroke-width="0.3"/>
+      <line x1="1005" y1="335" x2="1005" y2="383" stroke="#F472B6" stroke-width="0.3"/>
+      <line x1="1020" y1="335" x2="1020" y2="383" stroke="#F472B6" stroke-width="0.3"/>
+      <line x1="1035" y1="335" x2="1035" y2="383" stroke="#F472B6" stroke-width="0.3"/>
+      <line x1="1050" y1="335" x2="1050" y2="383" stroke="#F472B6" stroke-width="0.3"/>
+      <line x1="1065" y1="335" x2="1065" y2="383" stroke="#F472B6" stroke-width="0.3"/>
+      <line x1="1080" y1="335" x2="1080" y2="383" stroke="#F472B6" stroke-width="0.3"/>
+      <line x1="1095" y1="335" x2="1095" y2="383" stroke="#F472B6" stroke-width="0.3"/>
+      <line x1="1110" y1="335" x2="1110" y2="383" stroke="#F472B6" stroke-width="0.3"/>
+      <line x1="1125" y1="335" x2="1125" y2="383" stroke="#F472B6" stroke-width="0.3"/>
+      <text x="1035" y="398" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#BE185D">Context Features (14-dim)</text>
+
+      <!-- Output boxes at bottom of panel b -->
+      <rect x="760" y="416" width="140" height="20" rx="4" fill="#C7D2FE" stroke="#818CF8" stroke-width="0.8"/>
+      <text x="830" y="430" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#4338CA">Node Features</text>
+      <rect x="930" y="416" width="150" height="20" rx="4" fill="#FBCFE8" stroke="#F472B6" stroke-width="0.8"/>
+      <text x="1005" y="430" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#BE185D">Context Features</text>
+    </g>
+  </g>
+
+  <!-- ================================================================ -->
+  <!-- CONNECTING ARROWS: Stage 1 -> Stage 2                            -->
+  <!-- ================================================================ -->
+  <!-- Node features arrow -->
+  <line x1="830" y1="462" x2="460" y2="498" stroke="#4338CA" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <!-- Context features arrow -->
+  <line x1="1005" y1="462" x2="500" y2="498" stroke="#BE185D" stroke-width="1.5" marker-end="url(#arrow-purple)"/>
+
+  <!-- Base predictions bypass arrow (debate_vol, persist_vol -> panel d) -->
+  <path d="M 442,436 L 442,460 Q 442,475 457,475 L 1060,475 Q 1075,475 1075,490 L 1075,510" fill="none" stroke="#3B82F6" stroke-width="1.8" stroke-dasharray="6,3" marker-end="url(#arrow-blue)"/>
+  <text x="750" y="486" text-anchor="middle" font-size="7.5" fill="#3B82F6" font-weight="bold">Base Predictions bypass</text>
+
+  <!-- ================================================================ -->
+  <!-- STAGE 2: Learned Sparse GAT Meta-Aggregation                     -->
+  <!-- ================================================================ -->
+  <g id="stage2">
+    <rect x="15" y="490" width="1170" height="420" rx="10" fill="#FFFBEB" stroke="#FCD34D" stroke-width="1.5"/>
+    <text x="600" y="512" text-anchor="middle" font-size="14" font-weight="bold" fill="#92400E">Stage 2: Learned Sparse GAT Meta-Aggregation</text>
+
+    <!-- ====== Panel (c): Multi-Head GAT ====== -->
+    <g id="panel-c">
+      <rect x="25" y="522" width="580" height="378" rx="8" fill="#FEFCE8" stroke="#FDE047" stroke-width="1.2"/>
+      <text x="42" y="542" font-size="11.5" font-weight="bold" fill="#854D0E">(c) Multi-Head GAT with Learned Sparse Graph</text>
+
+      <!-- Input features box -->
+      <rect x="145" y="554" width="340" height="28" rx="4" fill="#FFF" stroke="#D97706" stroke-width="0.9"/>
+      <text x="315" y="572" text-anchor="middle" font-size="9" font-weight="bold" fill="#92400E">Node Features (7 x 6) + Context Features (14-dim)</text>
+
+      <!-- Arrow down to graph -->
+      <line x1="315" y1="582" x2="315" y2="596" stroke="#374151" stroke-width="1" marker-end="url(#arrow)"/>
+
+      <!-- Learned Sparse Graph Visualization -->
+      <rect x="45" y="600" width="210" height="155" rx="5" fill="#FFF" stroke="#FDE047" stroke-width="0.8"/>
+      <text x="150" y="616" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#854D0E">Learned Sparse Graph</text>
+
+      <!-- 7 nodes in circle layout (center at 150, 690, radius 48) -->
+      <!-- Node positions: -->
+      <!-- n1: 150, 642 (top) -->
+      <!-- n2: 196, 656 -->
+      <!-- n3: 210, 700 -->
+      <!-- n4: 196, 738 -->
+      <!-- n5: 150, 752 -->
+      <!-- n6: 104, 738 -->
+      <!-- n7: 90, 700 -->
+
+      <!-- Active edges (solid) -->
+      <line x1="150" y1="642" x2="196" y2="656" stroke="#D97706" stroke-width="1.2" opacity="0.8"/>
+      <line x1="150" y1="642" x2="104" y2="738" stroke="#D97706" stroke-width="1.5" opacity="0.9"/>
+      <line x1="196" y1="656" x2="210" y2="700" stroke="#D97706" stroke-width="1.0" opacity="0.7"/>
+      <line x1="196" y1="656" x2="150" y2="752" stroke="#D97706" stroke-width="0.8" opacity="0.6"/>
+      <line x1="210" y1="700" x2="196" y2="738" stroke="#D97706" stroke-width="1.4" opacity="0.85"/>
+      <line x1="196" y1="738" x2="150" y2="752" stroke="#D97706" stroke-width="1.1" opacity="0.75"/>
+      <line x1="150" y1="752" x2="90" y2="700" stroke="#D97706" stroke-width="1.3" opacity="0.8"/>
+      <line x1="104" y1="738" x2="90" y2="700" stroke="#D97706" stroke-width="0.9" opacity="0.7"/>
+      <line x1="150" y1="642" x2="210" y2="700" stroke="#D97706" stroke-width="1.0" opacity="0.6"/>
+      <line x1="90" y1="700" x2="150" y2="642" stroke="#D97706" stroke-width="1.1" opacity="0.75"/>
+
+      <!-- Pruned edges (very faint) -->
+      <line x1="150" y1="642" x2="196" y2="738" stroke="#D97706" stroke-width="0.4" opacity="0.12"/>
+      <line x1="150" y1="642" x2="150" y2="752" stroke="#D97706" stroke-width="0.4" opacity="0.12"/>
+      <line x1="196" y1="656" x2="104" y2="738" stroke="#D97706" stroke-width="0.4" opacity="0.12"/>
+      <line x1="196" y1="656" x2="90" y2="700" stroke="#D97706" stroke-width="0.4" opacity="0.12"/>
+      <line x1="210" y1="700" x2="150" y2="752" stroke="#D97706" stroke-width="0.4" opacity="0.12"/>
+      <line x1="210" y1="700" x2="104" y2="738" stroke="#D97706" stroke-width="0.4" opacity="0.12"/>
+      <line x1="210" y1="700" x2="90" y2="700" stroke="#D97706" stroke-width="0.4" opacity="0.12"/>
+      <line x1="196" y1="738" x2="90" y2="700" stroke="#D97706" stroke-width="0.4" opacity="0.12"/>
+      <line x1="196" y1="738" x2="104" y2="738" stroke="#D97706" stroke-width="0.4" opacity="0.12"/>
+      <line x1="150" y1="752" x2="104" y2="738" stroke="#D97706" stroke-width="0.4" opacity="0.12"/>
+      <line x1="196" y1="656" x2="196" y2="738" stroke="#D97706" stroke-width="0.4" opacity="0.12"/>
+
+      <!-- Nodes -->
+      <circle cx="150" cy="642" r="8" fill="#FEF3C7" stroke="#D97706" stroke-width="1.2"/>
+      <text x="150" y="645" text-anchor="middle" font-size="6.5" font-weight="bold" fill="#92400E">G</text>
+      <circle cx="196" cy="656" r="8" fill="#FEF3C7" stroke="#D97706" stroke-width="1.2"/>
+      <text x="196" y="659" text-anchor="middle" font-size="6.5" font-weight="bold" fill="#92400E">M</text>
+      <circle cx="210" cy="700" r="8" fill="#FEF3C7" stroke="#D97706" stroke-width="1.2"/>
+      <text x="210" y="703" text-anchor="middle" font-size="6.5" font-weight="bold" fill="#92400E">$</text>
+      <circle cx="196" cy="738" r="8" fill="#FEF3C7" stroke="#D97706" stroke-width="1.2"/>
+      <text x="196" y="741" text-anchor="middle" font-size="6.5" font-weight="bold" fill="#92400E">S</text>
+      <circle cx="150" cy="752" r="8" fill="#FEF3C7" stroke="#D97706" stroke-width="1.2"/>
+      <text x="150" y="755" text-anchor="middle" font-size="6.5" font-weight="bold" fill="#92400E">T</text>
+      <circle cx="104" cy="738" r="8" fill="#FEF3C7" stroke="#D97706" stroke-width="1.2"/>
+      <text x="104" y="741" text-anchor="middle" font-size="6.5" font-weight="bold" fill="#92400E">Se</text>
+      <circle cx="90" cy="700" r="8" fill="#FEF3C7" stroke="#D97706" stroke-width="1.2"/>
+      <text x="90" y="703" text-anchor="middle" font-size="6.5" font-weight="bold" fill="#92400E">X</text>
+
+      <text x="150" y="768" text-anchor="middle" font-size="7.5" fill="#854D0E">Learnable edge logits + sigmoid</text>
+
+      <!-- GAT Architecture (right side of panel c) -->
+      <!-- GAT Layer 1 -->
+      <rect x="280" y="610" width="290" height="32" rx="5" fill="#FFF" stroke="#D97706" stroke-width="1"/>
+      <text x="425" y="630" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#92400E">GAT Layer 1 (4 heads, top-k = 3)</text>
+
+      <!-- Skip connection arrow for Layer 1 -->
+      <path d="M 570,620 Q 585,620 585,638 L 585,656 Q 585,662 570,662" fill="none" stroke="#059669" stroke-width="1.2" stroke-dasharray="3,2" marker-end="url(#arrow-green)"/>
+      <text x="594" y="643" font-size="6.5" fill="#059669" font-weight="bold">skip</text>
+
+      <!-- LayerNorm 1 -->
+      <rect x="360" y="650" width="130" height="20" rx="3" fill="#F0FDF4" stroke="#86EFAC" stroke-width="0.8"/>
+      <text x="425" y="664" text-anchor="middle" font-size="8" fill="#166534">LayerNorm</text>
+
+      <!-- DropEdge label between layers -->
+      <rect x="340" y="680" width="120" height="18" rx="3" fill="#FEF3C7" stroke="#F59E0B" stroke-width="0.8"/>
+      <text x="400" y="692" text-anchor="middle" font-size="7.5" font-weight="bold" fill="#92400E">DropEdge 20%</text>
+
+      <!-- Arrow between layers -->
+      <line x1="425" y1="670" x2="425" y2="710" stroke="#374151" stroke-width="1" marker-end="url(#arrow)"/>
+
+      <!-- GAT Layer 2 -->
+      <rect x="280" y="714" width="290" height="32" rx="5" fill="#FFF" stroke="#D97706" stroke-width="1"/>
+      <text x="425" y="734" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#92400E">GAT Layer 2 (4 heads, top-k = 3)</text>
+
+      <!-- Skip connection arrow for Layer 2 -->
+      <path d="M 570,724 Q 585,724 585,742 L 585,760 Q 585,766 570,766" fill="none" stroke="#059669" stroke-width="1.2" stroke-dasharray="3,2" marker-end="url(#arrow-green)"/>
+      <text x="594" y="747" font-size="6.5" fill="#059669" font-weight="bold">skip</text>
+
+      <!-- LayerNorm 2 -->
+      <rect x="360" y="754" width="130" height="20" rx="3" fill="#F0FDF4" stroke="#86EFAC" stroke-width="0.8"/>
+      <text x="425" y="768" text-anchor="middle" font-size="8" fill="#166534">LayerNorm</text>
+
+      <!-- Arrow to readout -->
+      <line x1="425" y1="774" x2="425" y2="788" stroke="#374151" stroke-width="1" marker-end="url(#arrow)"/>
+
+      <!-- Graph Readout -->
+      <rect x="310" y="792" width="230" height="28" rx="5" fill="#FEF3C7" stroke="#D97706" stroke-width="1"/>
+      <text x="425" y="810" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#92400E">Graph Readout (mean pooling)</text>
+    </g>
+
+    <!-- ====== Panel (d): Regime-Gated Output Head ====== -->
+    <g id="panel-d">
+      <rect x="615" y="522" width="560" height="378" rx="8" fill="#F5F3FF" stroke="#C4B5FD" stroke-width="1.2"/>
+      <text x="632" y="542" font-size="11.5" font-weight="bold" fill="#5B21B6">(d) Regime-Gated Output Head</text>
+
+      <!-- Base predictions input (from Stage 1 bypass) -->
+      <rect x="770" y="554" width="240" height="28" rx="4" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1"/>
+      <text x="890" y="572" text-anchor="middle" font-size="9" font-weight="bold" fill="#1E40AF">Base Predictions: debate_vol, persist_vol</text>
+
+      <!-- Graph readout input arrow from panel c -->
+      <path d="M 540,806 L 610,806 Q 625,806 625,792 L 625,620 Q 625,608 640,608 L 660,608" fill="none" stroke="#D97706" stroke-width="1.5" marker-end="url(#arrow-amber)"/>
+      <text x="635" y="718" font-size="7" fill="#D97706" transform="rotate(-90,635,718)">graph embedding</text>
+
+      <!-- Graph embedding input box -->
+      <rect x="665" y="594" width="160" height="28" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1"/>
+      <text x="745" y="612" text-anchor="middle" font-size="9" font-weight="bold" fill="#92400E">Graph Embedding</text>
+
+      <!-- Arrow down from inputs -->
+      <line x1="800" y1="582" x2="800" y2="640" stroke="#374151" stroke-width="0.8"/>
+      <line x1="745" y1="622" x2="745" y2="640" stroke="#374151" stroke-width="0.8"/>
+
+      <!-- Three parallel paths -->
+      <!-- Base Head -->
+      <rect x="645" y="648" width="120" height="50" rx="5" fill="#FFF" stroke="#7C3AED" stroke-width="1"/>
+      <text x="705" y="668" text-anchor="middle" font-size="9" font-weight="bold" fill="#5B21B6">Base Head</text>
+      <text x="705" y="682" text-anchor="middle" font-size="8" fill="#7C3AED">Linear + Softmax</text>
+      <text x="705" y="708" text-anchor="middle" font-size="8" font-weight="bold" fill="#5B21B6">w_base</text>
+
+      <!-- Regime Head -->
+      <rect x="785" y="648" width="120" height="50" rx="5" fill="#FFF" stroke="#7C3AED" stroke-width="1"/>
+      <text x="845" y="668" text-anchor="middle" font-size="9" font-weight="bold" fill="#5B21B6">Regime Head</text>
+      <text x="845" y="682" text-anchor="middle" font-size="8" fill="#7C3AED">Linear + Softmax</text>
+      <text x="845" y="708" text-anchor="middle" font-size="8" font-weight="bold" fill="#5B21B6">w_regime</text>
+
+      <!-- Regime Gate -->
+      <rect x="925" y="648" width="120" height="50" rx="5" fill="#FFF" stroke="#7C3AED" stroke-width="1"/>
+      <text x="985" y="668" text-anchor="middle" font-size="9" font-weight="bold" fill="#5B21B6">Regime Gate</text>
+      <text x="985" y="682" text-anchor="middle" font-size="8" fill="#7C3AED">Linear + Sigmoid</text>
+      <text x="985" y="708" text-anchor="middle" font-size="8" font-weight="bold" fill="#5B21B6">g</text>
+
+      <!-- Arrows from heads down -->
+      <line x1="705" y1="698" x2="705" y2="730" stroke="#374151" stroke-width="1" marker-end="url(#arrow)"/>
+      <line x1="845" y1="698" x2="845" y2="730" stroke="#374151" stroke-width="1" marker-end="url(#arrow)"/>
+      <line x1="985" y1="698" x2="985" y2="730" stroke="#374151" stroke-width="1" marker-end="url(#arrow)"/>
+
+      <!-- Blending formula box -->
+      <rect x="650" y="734" width="500" height="36" rx="5" fill="#EDE9FE" stroke="#A78BFA" stroke-width="1.2"/>
+      <text x="900" y="750" text-anchor="middle" font-size="9" font-weight="bold" fill="#5B21B6">Weight Blending</text>
+      <text x="900" y="764" text-anchor="middle" font-size="9" fill="#6D28D9">w = (1 &#x2212; g) &#xB7; w_base + g &#xB7; w_regime</text>
+
+      <!-- Arrow down -->
+      <line x1="895" y1="770" x2="895" y2="790" stroke="#374151" stroke-width="1" marker-end="url(#arrow)"/>
+
+      <!-- Weighted combination -->
+      <rect x="660" y="794" width="480" height="30" rx="5" fill="#EDE9FE" stroke="#A78BFA" stroke-width="1"/>
+      <text x="900" y="813" text-anchor="middle" font-size="8.5" fill="#5B21B6">pred = clamp( w&#x2081; &#xB7; debate_vol + w&#x2082; &#xB7; persist_vol + residual, min = 0.05 )</text>
+
+      <!-- Arrow to final output -->
+      <line x1="895" y1="824" x2="895" y2="844" stroke="#374151" stroke-width="1" marker-end="url(#arrow)"/>
+
+      <!-- Final output box -->
+      <rect x="700" y="848" width="390" height="38" rx="6" fill="#D1FAE5" stroke="#059669" stroke-width="2"/>
+      <text x="895" y="871" text-anchor="middle" font-size="11" font-weight="bold" fill="#065F46">Predicted 20-day Realized Volatility</text>
+    </g>
+  </g>
+</svg>

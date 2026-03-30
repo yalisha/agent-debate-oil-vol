@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 from pathlib import Path
 import warnings
+from walk_forward_utils import LABEL_EMBARGO, embargoed_train_end
 warnings.filterwarnings("ignore")
 
 BASE = Path(__file__).parent.parent
@@ -16,7 +17,7 @@ def load_data():
     macro = pd.read_csv(BASE / "data/oil_macro_daily.csv", parse_dates=["date"])
     gdelt = pd.read_csv(BASE / "data/gdelt_daily_features.csv", parse_dates=["date"])
     df = macro.merge(gdelt, on="date", how="inner").sort_values("date").reset_index(drop=True)
-    df["fwd_vol_20d"] = df["wti_vol_20d"].shift(-1)
+    df["fwd_vol_20d"] = df["fwd_rv_20d"]  # true forward-looking 20d realized vol
     df = df.dropna(subset=["fwd_vol_20d"]).reset_index(drop=True)
     return df
 
@@ -160,6 +161,7 @@ def main():
     # Test period: 2020+
     test_start = df[df["date"] >= "2020-01-01"].index[0]
     print(f"Test start index: {test_start}, retrain every {RETRAIN_EVERY} days")
+    print(f"Label embargo: {LABEL_EMBARGO} trading days for forward-looking target")
 
     # Determine retrain points
     test_indices = list(range(test_start, len(df)))
@@ -177,7 +179,7 @@ def main():
         abs_test_end = test_indices[chunk_end - 1] + 1
 
         # Train on all data up to this chunk
-        train_end = test_indices[chunk_start]
+        train_end = embargoed_train_end(test_indices[chunk_start])
         train_X = all_feat[:train_end]
         train_y = target[:train_end]
         valid = ~np.isnan(train_y)

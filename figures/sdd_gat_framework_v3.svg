@@ -1,0 +1,396 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 920" font-family="'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <style><![CDATA[
+      .stage-title { font-size: 14px; font-weight: 700; fill: #0f172a; letter-spacing: 0.3px; }
+      .panel-chip { font-size: 11.5px; font-weight: 700; fill: #0f172a; }
+      .section-title { font-size: 9.2px; font-weight: 700; fill: #0f172a; }
+      .section-sub { font-size: 7.5px; fill: #64748b; }
+      .agent-title { font-size: 8.4px; font-weight: 700; fill: #0f172a; }
+      .agent-sub { font-size: 7px; fill: #7c8ba1; font-style: italic; }
+      .small-tag { font-size: 7.2px; font-weight: 700; fill: #475569; letter-spacing: 0.6px; }
+      .body-text { font-size: 8.3px; fill: #475569; }
+      .mono-text { font-size: 7.4px; font-weight: 600; fill: #334155; font-family: 'SF Mono', Menlo, Consolas, monospace; }
+      .note-text { font-size: 7.2px; fill: #64748b; }
+      .formula-text { font-size: 8.7px; fill: #5b21b6; }
+      .output-text { font-size: 10.6px; font-weight: 700; fill: #065f46; }
+      .node-label { font-size: 5.8px; font-weight: 700; fill: #9a5b0b; }
+      .connector { fill: none; stroke: #475569; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+      .connector-thin { fill: none; stroke: #64748b; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+      .connector-blue { fill: none; stroke: #2563eb; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+      .connector-violet { fill: none; stroke: #7c3aed; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+      .connector-amber { fill: none; stroke: #c57612; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+      .connector-dashed { stroke-dasharray: 5 4; }
+      .edge-active { fill: none; stroke: #c57612; stroke-linecap: round; stroke-linejoin: round; }
+      .edge-pruned { fill: none; stroke: #d9a35b; stroke-width: 0.55; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 2.4 3.3; opacity: 0.25; }
+    ]]></style>
+
+    <filter id="shadow-soft" x="-8%" y="-8%" width="116%" height="122%">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.07"/>
+    </filter>
+    <filter id="shadow-card" x="-8%" y="-8%" width="116%" height="122%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.05"/>
+    </filter>
+
+    <marker id="arrow-slate" viewBox="0 0 12 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 11 5 L 0 10 Q 2.2 5 0 0 Z" fill="#475569"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 12 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 11 5 L 0 10 Q 2.2 5 0 0 Z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-violet" viewBox="0 0 12 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 11 5 L 0 10 Q 2.2 5 0 0 Z" fill="#7c3aed"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 12 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 11 5 L 0 10 Q 2.2 5 0 0 Z" fill="#c57612"/>
+    </marker>
+    <marker id="arrow-teal" viewBox="0 0 12 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 11 5 L 0 10 Q 2.2 5 0 0 Z" fill="#0f766e"/>
+    </marker>
+    <marker id="arrow-coral" viewBox="0 0 12 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 11 5 L 0 10 Q 2.2 5 0 0 Z" fill="#dc2626"/>
+    </marker>
+    <marker id="arrow-sky" viewBox="0 0 12 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 11 5 L 0 10 Q 2.2 5 0 0 Z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-mint" viewBox="0 0 12 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 11 5 L 0 10 Q 2.2 5 0 0 Z" fill="#0f766e"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="920" fill="#f8fafc"/>
+
+  <!-- Stage 1 -->
+  <g id="stage1">
+    <rect x="18" y="18" width="1164" height="446" rx="20" fill="#fbfdff" stroke="#d7e2ee" stroke-width="1.5"/>
+    <rect x="455" y="28" width="290" height="24" rx="12" fill="#e8f0fb"/>
+    <text x="600" y="44" text-anchor="middle" class="stage-title">Stage 1: Multi-Agent Structured Delphi Debate</text>
+
+    <!-- Panel A -->
+    <g id="panel-a">
+      <rect x="34" y="58" width="670" height="392" rx="18" fill="#ffffff" stroke="#dbe5ef" stroke-width="1.2" filter="url(#shadow-soft)"/>
+      <rect x="52" y="74" width="248" height="24" rx="12" fill="#e8f6ef"/>
+      <circle cx="66" cy="86" r="4.2" fill="#0f766e"/>
+      <text x="78" y="90" class="panel-chip">(a) Diverse Agent Debate Protocol</text>
+
+      <rect x="58" y="108" width="180" height="48" rx="12" fill="#fff4f4" stroke="#f0b3b3" stroke-width="1" filter="url(#shadow-card)"/>
+      <text x="148" y="127" text-anchor="middle" class="section-title" fill="#991b1b">GDELT Conflict Data</text>
+      <text x="148" y="141" text-anchor="middle" class="section-sub" fill="#b91c1c">geopolitical events, tone, conflict salience</text>
+
+      <rect x="260" y="108" width="180" height="48" rx="12" fill="#eff5ff" stroke="#b6caf9" stroke-width="1" filter="url(#shadow-card)"/>
+      <text x="350" y="127" text-anchor="middle" class="section-title" fill="#1d4ed8">Macro &amp; Monetary Data</text>
+      <text x="350" y="141" text-anchor="middle" class="section-sub" fill="#2563eb">VIX, DXY, rates, term spread, policy cues</text>
+
+      <rect x="462" y="108" width="180" height="48" rx="12" fill="#eef9f4" stroke="#abd8c5" stroke-width="1" filter="url(#shadow-card)"/>
+      <text x="552" y="127" text-anchor="middle" class="section-title" fill="#0f766e">Price &amp; Technical Data</text>
+      <text x="552" y="141" text-anchor="middle" class="section-sub" fill="#0f766e">WTI price path, returns, realized volatility</text>
+
+      <path d="M 112 156 C 106 165, 97 171, 86 176" fill="none" stroke="#dc2626" stroke-width="1.25" stroke-dasharray="4 4" stroke-linecap="round" marker-end="url(#arrow-coral)" opacity="0.9"/>
+      <path d="M 188 156 C 258 167, 455 168, 546 176" fill="none" stroke="#dc2626" stroke-width="1.25" stroke-dasharray="4 4" stroke-linecap="round" marker-end="url(#arrow-coral)" opacity="0.85"/>
+      <path d="M 318 156 C 292 164, 238 170, 178 176" fill="none" stroke="#2563eb" stroke-width="1.25" stroke-dasharray="4 4" stroke-linecap="round" marker-end="url(#arrow-sky)" opacity="0.88"/>
+      <path d="M 350 156 C 340 163, 314 169, 270 176" fill="none" stroke="#2563eb" stroke-width="1.25" stroke-dasharray="4 4" stroke-linecap="round" marker-end="url(#arrow-sky)" opacity="0.88"/>
+      <path d="M 402 156 C 456 166, 553 170, 638 176" fill="none" stroke="#2563eb" stroke-width="1.25" stroke-dasharray="4 4" stroke-linecap="round" marker-end="url(#arrow-sky)" opacity="0.88"/>
+      <path d="M 538 156 C 503 165, 438 170, 362 176" fill="none" stroke="#0f766e" stroke-width="1.25" stroke-dasharray="4 4" stroke-linecap="round" marker-end="url(#arrow-mint)" opacity="0.88"/>
+      <path d="M 582 156 C 557 164, 512 170, 454 176" fill="none" stroke="#0f766e" stroke-width="1.25" stroke-dasharray="4 4" stroke-linecap="round" marker-end="url(#arrow-mint)" opacity="0.88"/>
+
+      <text x="58" y="168" class="small-tag">ROLE-SPECIALIZED FORECAST AGENTS</text>
+
+      <rect x="44" y="176" width="84" height="36" rx="11" fill="#ffffff" stroke="#dbe3ec" stroke-width="1"/>
+      <text x="86" y="193" text-anchor="middle" class="agent-title">Geopolitical</text>
+      <text x="86" y="206" text-anchor="middle" class="agent-sub">hawkish</text>
+
+      <rect x="136" y="176" width="84" height="36" rx="11" fill="#ffffff" stroke="#dbe3ec" stroke-width="1"/>
+      <text x="178" y="193" text-anchor="middle" class="agent-title">Macro Demand</text>
+      <text x="178" y="206" text-anchor="middle" class="agent-sub">mean-reverting</text>
+
+      <rect x="228" y="176" width="84" height="36" rx="11" fill="#ffffff" stroke="#dbe3ec" stroke-width="1"/>
+      <text x="270" y="193" text-anchor="middle" class="agent-title">Monetary</text>
+      <text x="270" y="206" text-anchor="middle" class="agent-sub">dovish</text>
+
+      <rect x="320" y="176" width="84" height="36" rx="11" fill="#ffffff" stroke="#dbe3ec" stroke-width="1"/>
+      <text x="362" y="193" text-anchor="middle" class="agent-title">Supply / OPEC</text>
+      <text x="362" y="206" text-anchor="middle" class="agent-sub">supply-focused</text>
+
+      <rect x="412" y="176" width="84" height="36" rx="11" fill="#ffffff" stroke="#dbe3ec" stroke-width="1"/>
+      <text x="454" y="193" text-anchor="middle" class="agent-title">Technical</text>
+      <text x="454" y="206" text-anchor="middle" class="agent-sub">contrarian</text>
+
+      <rect x="504" y="176" width="84" height="36" rx="11" fill="#ffffff" stroke="#dbe3ec" stroke-width="1"/>
+      <text x="546" y="193" text-anchor="middle" class="agent-title">Sentiment</text>
+      <text x="546" y="206" text-anchor="middle" class="agent-sub">momentum</text>
+
+      <rect x="596" y="176" width="84" height="36" rx="11" fill="#ffffff" stroke="#dbe3ec" stroke-width="1"/>
+      <text x="638" y="193" text-anchor="middle" class="agent-title">Cross-Market</text>
+      <text x="638" y="206" text-anchor="middle" class="agent-sub">correlation</text>
+
+      <rect x="96" y="230" width="540" height="38" rx="13" fill="#ffffff" stroke="#a8d5bf" stroke-width="1.2" filter="url(#shadow-card)"/>
+      <circle cx="120" cy="249" r="10.5" fill="#dff5e8" stroke="#0f766e" stroke-width="1"/>
+      <text x="120" y="253" text-anchor="middle" class="section-title" fill="#0f766e">1</text>
+      <text x="145" y="253" class="section-title">Round 1: Independent Forecasts</text>
+      <text x="596" y="253" text-anchor="end" class="note-text">role-conditioned priors only</text>
+
+      <path d="M 366 268 L 366 278" class="connector" marker-end="url(#arrow-slate)"/>
+
+      <rect x="96" y="278" width="540" height="38" rx="13" fill="#ffffff" stroke="#edc083" stroke-width="1.2" filter="url(#shadow-card)"/>
+      <circle cx="120" cy="297" r="10.5" fill="#fff2df" stroke="#c57612" stroke-width="1"/>
+      <text x="120" y="301" text-anchor="middle" class="section-title" fill="#c57612">2</text>
+      <text x="145" y="301" class="section-title">Round 2: Revision After Peer Exchange</text>
+      <text x="594" y="301" text-anchor="end" class="note-text">cross-view critique and update</text>
+      <path d="M 176 287 C 258 255, 472 255, 554 287" fill="none" stroke="#c57612" stroke-width="1.1" stroke-dasharray="4 4" stroke-linecap="round" marker-start="url(#arrow-amber)" marker-end="url(#arrow-amber)"/>
+
+      <path d="M 366 316 L 366 326" class="connector" marker-end="url(#arrow-slate)"/>
+
+      <rect x="96" y="326" width="540" height="38" rx="13" fill="#ffffff" stroke="#cbb5f9" stroke-width="1.2" filter="url(#shadow-card)"/>
+      <circle cx="120" cy="345" r="10.5" fill="#f2ebff" stroke="#7c3aed" stroke-width="1"/>
+      <text x="120" y="349" text-anchor="middle" class="section-title" fill="#7c3aed">3</text>
+      <text x="145" y="349" class="section-title">Round 3: Final Position</text>
+      <text x="594" y="349" text-anchor="end" class="note-text">consensus not mechanically rewarded</text>
+
+      <rect x="106" y="372" width="184" height="22" rx="11" fill="#fff4de" stroke="#efb054" stroke-width="1"/>
+      <text x="198" y="386" text-anchor="middle" class="small-tag" fill="#9a5b0b">CONFORMITY PENALTY APPLIED</text>
+
+      <path d="M 366 364 L 366 396" class="connector" marker-end="url(#arrow-slate)"/>
+
+      <rect x="246" y="396" width="236" height="32" rx="12" fill="#eef4ff" stroke="#8bb0f3" stroke-width="1.2" filter="url(#shadow-card)"/>
+      <text x="364" y="411" text-anchor="middle" class="section-title" fill="#1d4ed8">Naive Aggregation Baseline</text>
+      <text x="364" y="422" text-anchor="middle" class="note-text" fill="#2563eb">persist_vol + confidence-weighted mean(adj)</text>
+
+      <path d="M 364 428 L 364 430 M 326 430 L 402 430 M 326 430 L 326 434 M 402 430 L 402 434" fill="none" stroke="#2563eb" stroke-width="1.2" stroke-linecap="round"/>
+      <rect x="280" y="434" width="92" height="14" rx="7" fill="#dbe8ff" stroke="#90b4f6" stroke-width="0.9"/>
+      <text x="326" y="444" text-anchor="middle" class="mono-text" fill="#1d4ed8">debate_vol</text>
+      <rect x="376" y="434" width="92" height="14" rx="7" fill="#dbe8ff" stroke="#90b4f6" stroke-width="0.9"/>
+      <text x="422" y="444" text-anchor="middle" class="mono-text" fill="#1d4ed8">persist_vol</text>
+    </g>
+
+    <!-- Panel B -->
+    <g id="panel-b">
+      <rect x="714" y="58" width="452" height="392" rx="18" fill="#ffffff" stroke="#e5d8df" stroke-width="1.2" filter="url(#shadow-soft)"/>
+      <rect x="732" y="74" width="236" height="24" rx="12" fill="#fff0f4"/>
+      <circle cx="746" cy="86" r="4.2" fill="#be123c"/>
+      <text x="758" y="90" class="panel-chip">(b) Per-Agent Feature Extraction</text>
+
+      <rect x="734" y="106" width="412" height="72" rx="14" fill="#fffafc" stroke="#f2d7e1" stroke-width="1"/>
+      <text x="754" y="123" class="small-tag" fill="#9f1239">PER-AGENT FEATURES</text>
+      <rect x="752" y="132" width="108" height="20" rx="10" fill="#ffffff" stroke="#e6d7de" stroke-width="0.9"/>
+      <rect x="884" y="132" width="108" height="20" rx="10" fill="#ffffff" stroke="#e6d7de" stroke-width="0.9"/>
+      <rect x="1016" y="132" width="108" height="20" rx="10" fill="#ffffff" stroke="#e6d7de" stroke-width="0.9"/>
+      <rect x="752" y="156" width="108" height="20" rx="10" fill="#ffffff" stroke="#e6d7de" stroke-width="0.9"/>
+      <rect x="884" y="156" width="108" height="20" rx="10" fill="#ffffff" stroke="#e6d7de" stroke-width="0.9"/>
+      <rect x="1016" y="156" width="108" height="20" rx="10" fill="#ffffff" stroke="#e6d7de" stroke-width="0.9"/>
+      <text x="806" y="145" text-anchor="middle" class="mono-text">adj_r3</text>
+      <text x="938" y="145" text-anchor="middle" class="mono-text">conf_r3</text>
+      <text x="1070" y="145" text-anchor="middle" class="mono-text">total_revision</text>
+      <text x="806" y="169" text-anchor="middle" class="mono-text">conf_trend</text>
+      <text x="938" y="169" text-anchor="middle" class="mono-text">revision_r23</text>
+      <text x="1070" y="169" text-anchor="middle" class="mono-text">agg_weight</text>
+
+      <path d="M 940 178 L 940 186" class="connector" marker-end="url(#arrow-slate)"/>
+
+      <rect x="734" y="186" width="412" height="118" rx="14" fill="#fffafc" stroke="#f2d7e1" stroke-width="1"/>
+      <text x="754" y="203" class="small-tag" fill="#9f1239">CROSS-AGENT STATISTICS</text>
+      <rect x="754" y="214" width="372" height="40" rx="12" fill="#fff4df" stroke="#efb054" stroke-width="1.6" filter="url(#shadow-card)"/>
+      <text x="940" y="231" text-anchor="middle" class="section-title" fill="#9a5b0b">Disagreement: std of final round adjustments</text>
+      <text x="940" y="245" text-anchor="middle" class="section-sub" fill="#9a5b0b">empirically strongest signal for future realized volatility</text>
+
+      <rect x="778" y="266" width="150" height="18" rx="9" fill="#f8fafc" stroke="#d7dee6" stroke-width="0.8"/>
+      <text x="853" y="278" text-anchor="middle" class="body-text">Mean adjustment</text>
+      <rect x="952" y="266" width="150" height="18" rx="9" fill="#f8fafc" stroke="#d7dee6" stroke-width="0.8"/>
+      <text x="1027" y="278" text-anchor="middle" class="body-text">Confidence dispersion</text>
+
+      <path d="M 940 304 L 940 316" class="connector" marker-end="url(#arrow-slate)"/>
+
+      <rect x="734" y="316" width="412" height="92" rx="14" fill="#fffafc" stroke="#f2d7e1" stroke-width="1"/>
+      <text x="754" y="333" class="small-tag" fill="#9f1239">FEATURE MATRICES</text>
+      <rect x="760" y="348" width="150" height="42" rx="10" fill="#edf2ff" stroke="#b9c8f8" stroke-width="0.9"/>
+      <line x1="785" y1="348" x2="785" y2="390" stroke="#9eb2f3" stroke-width="0.45"/>
+      <line x1="810" y1="348" x2="810" y2="390" stroke="#9eb2f3" stroke-width="0.45"/>
+      <line x1="835" y1="348" x2="835" y2="390" stroke="#9eb2f3" stroke-width="0.45"/>
+      <line x1="860" y1="348" x2="860" y2="390" stroke="#9eb2f3" stroke-width="0.45"/>
+      <line x1="885" y1="348" x2="885" y2="390" stroke="#9eb2f3" stroke-width="0.45"/>
+      <line x1="760" y1="355" x2="910" y2="355" stroke="#9eb2f3" stroke-width="0.45"/>
+      <line x1="760" y1="362" x2="910" y2="362" stroke="#9eb2f3" stroke-width="0.45"/>
+      <line x1="760" y1="369" x2="910" y2="369" stroke="#9eb2f3" stroke-width="0.45"/>
+      <line x1="760" y1="376" x2="910" y2="376" stroke="#9eb2f3" stroke-width="0.45"/>
+      <line x1="760" y1="383" x2="910" y2="383" stroke="#9eb2f3" stroke-width="0.45"/>
+      <text x="835" y="402" text-anchor="middle" class="body-text" fill="#1d4ed8">Node Features (7 x 6)</text>
+
+      <rect x="932" y="348" width="186" height="42" rx="10" fill="#fff0f7" stroke="#f2bad2" stroke-width="0.9"/>
+      <line x1="945" y1="348" x2="945" y2="390" stroke="#e8a2c2" stroke-width="0.45"/>
+      <line x1="958" y1="348" x2="958" y2="390" stroke="#e8a2c2" stroke-width="0.45"/>
+      <line x1="971" y1="348" x2="971" y2="390" stroke="#e8a2c2" stroke-width="0.45"/>
+      <line x1="984" y1="348" x2="984" y2="390" stroke="#e8a2c2" stroke-width="0.45"/>
+      <line x1="997" y1="348" x2="997" y2="390" stroke="#e8a2c2" stroke-width="0.45"/>
+      <line x1="1010" y1="348" x2="1010" y2="390" stroke="#e8a2c2" stroke-width="0.45"/>
+      <line x1="1023" y1="348" x2="1023" y2="390" stroke="#e8a2c2" stroke-width="0.45"/>
+      <line x1="1036" y1="348" x2="1036" y2="390" stroke="#e8a2c2" stroke-width="0.45"/>
+      <line x1="1049" y1="348" x2="1049" y2="390" stroke="#e8a2c2" stroke-width="0.45"/>
+      <line x1="1062" y1="348" x2="1062" y2="390" stroke="#e8a2c2" stroke-width="0.45"/>
+      <line x1="1075" y1="348" x2="1075" y2="390" stroke="#e8a2c2" stroke-width="0.45"/>
+      <line x1="1088" y1="348" x2="1088" y2="390" stroke="#e8a2c2" stroke-width="0.45"/>
+      <line x1="1101" y1="348" x2="1101" y2="390" stroke="#e8a2c2" stroke-width="0.45"/>
+      <text x="1025" y="402" text-anchor="middle" class="body-text" fill="#be185d">Context Features (14-dim)</text>
+
+      <rect x="766" y="420" width="144" height="18" rx="9" fill="#dfe8ff" stroke="#9ab6f5" stroke-width="0.9"/>
+      <text x="838" y="432" text-anchor="middle" class="mono-text" fill="#1d4ed8">node_features</text>
+      <rect x="930" y="420" width="154" height="18" rx="9" fill="#fde6f1" stroke="#e8a6c7" stroke-width="0.9"/>
+      <text x="1007" y="432" text-anchor="middle" class="mono-text" fill="#be185d">context_features</text>
+    </g>
+  </g>
+
+  <!-- Stage 1 to Stage 2 connectors -->
+  <path d="M 838 438 C 800 474, 682 500, 520 514 C 432 521, 349 531, 276 556" class="connector-blue" marker-end="url(#arrow-blue)"/>
+  <path d="M 1007 438 C 991 474, 894 501, 704 518 C 566 530, 475 538, 360 556" class="connector-violet" marker-end="url(#arrow-violet)"/>
+  <path d="M 364 438 C 409 472, 513 482, 646 482 L 930 482 C 964 482 986 505, 986 536 L 986 556" class="connector-blue connector-dashed" marker-end="url(#arrow-blue)"/>
+  <text x="760" y="472" text-anchor="middle" class="note-text" fill="#2563eb">base predictions bypass</text>
+
+  <!-- Stage 2 -->
+  <g id="stage2">
+    <rect x="18" y="482" width="1164" height="420" rx="20" fill="#fffdf7" stroke="#ecdcb5" stroke-width="1.5"/>
+    <rect x="446" y="492" width="308" height="24" rx="12" fill="#fff2da"/>
+    <text x="600" y="508" text-anchor="middle" class="stage-title">Stage 2: Learned Sparse GAT Meta-Aggregation</text>
+
+    <!-- Panel C -->
+    <g id="panel-c">
+      <rect x="34" y="522" width="568" height="366" rx="18" fill="#ffffff" stroke="#eadcc1" stroke-width="1.2" filter="url(#shadow-soft)"/>
+      <rect x="52" y="538" width="290" height="24" rx="12" fill="#fff4de"/>
+      <circle cx="66" cy="550" r="4.2" fill="#c57612"/>
+      <text x="78" y="554" class="panel-chip">(c) Multi-Head GAT With Learned Sparse Graph</text>
+
+      <rect x="154" y="558" width="328" height="34" rx="12" fill="#fffdfa" stroke="#e4d2b3" stroke-width="1.1" filter="url(#shadow-card)"/>
+      <text x="318" y="579" text-anchor="middle" class="section-title" fill="#9a5b0b">Node Features (7 x 6) + Context Features (14-dim)</text>
+
+      <path d="M 318 592 L 318 604" class="connector-thin"/>
+      <circle cx="318" cy="604" r="2.6" fill="#475569"/>
+      <path d="M 318 604 C 286 604, 246 608, 160 616" class="connector" marker-end="url(#arrow-slate)"/>
+      <path d="M 318 604 C 350 604, 392 610, 435 622" class="connector" marker-end="url(#arrow-slate)"/>
+
+      <rect x="54" y="616" width="214" height="158" rx="14" fill="#fffefb" stroke="#eadcc1" stroke-width="1"/>
+      <text x="161" y="634" text-anchor="middle" class="small-tag" fill="#9a5b0b">LEARNED SPARSE GRAPH</text>
+
+      <path d="M 161 648 L 206 662" class="edge-active" stroke-width="1.3"/>
+      <path d="M 161 648 L 126 740" class="edge-active" stroke-width="1.6"/>
+      <path d="M 206 662 L 220 704" class="edge-active" stroke-width="1.15"/>
+      <path d="M 206 662 L 161 756" class="edge-active" stroke-width="0.95"/>
+      <path d="M 220 704 L 198 740" class="edge-active" stroke-width="1.45"/>
+      <path d="M 198 740 L 161 756" class="edge-active" stroke-width="1.2"/>
+      <path d="M 161 756 L 102 704" class="edge-active" stroke-width="1.35"/>
+      <path d="M 126 740 L 102 704" class="edge-active" stroke-width="1.0"/>
+      <path d="M 161 648 L 220 704" class="edge-active" stroke-width="1.0"/>
+      <path d="M 102 704 L 161 648" class="edge-active" stroke-width="1.1"/>
+
+      <path d="M 161 648 L 198 740" class="edge-pruned"/>
+      <path d="M 161 648 L 161 756" class="edge-pruned"/>
+      <path d="M 206 662 L 126 740" class="edge-pruned"/>
+      <path d="M 206 662 L 102 704" class="edge-pruned"/>
+      <path d="M 220 704 L 161 756" class="edge-pruned"/>
+      <path d="M 220 704 L 126 740" class="edge-pruned"/>
+      <path d="M 220 704 L 102 704" class="edge-pruned"/>
+      <path d="M 198 740 L 102 704" class="edge-pruned"/>
+      <path d="M 198 740 L 126 740" class="edge-pruned"/>
+      <path d="M 161 756 L 126 740" class="edge-pruned"/>
+
+      <circle cx="161" cy="648" r="10" fill="#fff4de" stroke="#c57612" stroke-width="1.2"/>
+      <circle cx="206" cy="662" r="10" fill="#fff4de" stroke="#c57612" stroke-width="1.2"/>
+      <circle cx="220" cy="704" r="10" fill="#fff4de" stroke="#c57612" stroke-width="1.2"/>
+      <circle cx="198" cy="740" r="10" fill="#fff4de" stroke="#c57612" stroke-width="1.2"/>
+      <circle cx="161" cy="756" r="10" fill="#fff4de" stroke="#c57612" stroke-width="1.2"/>
+      <circle cx="126" cy="740" r="10" fill="#fff4de" stroke="#c57612" stroke-width="1.2"/>
+      <circle cx="102" cy="704" r="10" fill="#fff4de" stroke="#c57612" stroke-width="1.2"/>
+
+      <text x="161" y="651" text-anchor="middle" class="node-label">GE</text>
+      <text x="206" y="665" text-anchor="middle" class="node-label">MD</text>
+      <text x="220" y="707" text-anchor="middle" class="node-label">MO</text>
+      <text x="198" y="743" text-anchor="middle" class="node-label">SO</text>
+      <text x="161" y="759" text-anchor="middle" class="node-label">TE</text>
+      <text x="126" y="743" text-anchor="middle" class="node-label">SE</text>
+      <text x="102" y="707" text-anchor="middle" class="node-label">XM</text>
+
+      <text x="161" y="762" text-anchor="middle" class="note-text" fill="#9a5b0b">top-k sparsification over learnable edge logits</text>
+
+      <path d="M 268 694 C 285 694, 286 639, 300 639" class="connector-amber" marker-end="url(#arrow-amber)"/>
+      <text x="280" y="683" class="note-text" fill="#c57612">learned adjacency</text>
+
+      <rect x="300" y="622" width="270" height="34" rx="12" fill="#fffdfa" stroke="#e4d2b3" stroke-width="1.1" filter="url(#shadow-card)"/>
+      <text x="435" y="643" text-anchor="middle" class="section-title" fill="#9a5b0b">GAT Layer 1 (4 heads, top-k = 3)</text>
+      <path d="M 570 632 C 588 632, 588 688, 570 688" fill="none" stroke="#0f766e" stroke-width="1.25" stroke-dasharray="4 4" stroke-linecap="round" marker-end="url(#arrow-teal)"/>
+      <text x="594" y="662" class="note-text" fill="#0f766e">residual</text>
+
+      <path d="M 435 656 L 435 666" class="connector" marker-end="url(#arrow-slate)"/>
+      <rect x="370" y="666" width="130" height="22" rx="10" fill="#effaf5" stroke="#badfcf" stroke-width="0.9"/>
+      <text x="435" y="680" text-anchor="middle" class="body-text" fill="#0f766e">LayerNorm</text>
+
+      <path d="M 435 688 L 435 699" class="connector" marker-end="url(#arrow-slate)"/>
+      <rect x="352" y="699" width="166" height="20" rx="10" fill="#fff4de" stroke="#efb054" stroke-width="0.9"/>
+      <text x="435" y="712" text-anchor="middle" class="body-text" fill="#9a5b0b">DropEdge 20%</text>
+
+      <path d="M 435 719 L 435 730" class="connector" marker-end="url(#arrow-slate)"/>
+      <rect x="300" y="730" width="270" height="34" rx="12" fill="#fffdfa" stroke="#e4d2b3" stroke-width="1.1" filter="url(#shadow-card)"/>
+      <text x="435" y="751" text-anchor="middle" class="section-title" fill="#9a5b0b">GAT Layer 2 (4 heads, top-k = 3)</text>
+      <path d="M 570 740 C 588 740, 588 796, 570 796" fill="none" stroke="#0f766e" stroke-width="1.25" stroke-dasharray="4 4" stroke-linecap="round" marker-end="url(#arrow-teal)"/>
+      <text x="594" y="770" class="note-text" fill="#0f766e">residual</text>
+
+      <path d="M 435 764 L 435 774" class="connector" marker-end="url(#arrow-slate)"/>
+      <rect x="370" y="774" width="130" height="22" rx="10" fill="#effaf5" stroke="#badfcf" stroke-width="0.9"/>
+      <text x="435" y="788" text-anchor="middle" class="body-text" fill="#0f766e">LayerNorm</text>
+
+      <path d="M 435 796 L 435 812" class="connector" marker-end="url(#arrow-slate)"/>
+      <rect x="318" y="812" width="234" height="32" rx="12" fill="#fff4de" stroke="#efb054" stroke-width="1.1" filter="url(#shadow-card)"/>
+      <text x="435" y="831" text-anchor="middle" class="section-title" fill="#9a5b0b">Graph Readout (mean pooling)</text>
+    </g>
+
+    <!-- Panel D -->
+    <g id="panel-d">
+      <rect x="616" y="522" width="550" height="366" rx="18" fill="#ffffff" stroke="#ddd5ef" stroke-width="1.2" filter="url(#shadow-soft)"/>
+      <rect x="634" y="538" width="228" height="24" rx="12" fill="#f5efff"/>
+      <circle cx="648" cy="550" r="4.2" fill="#7c3aed"/>
+      <text x="660" y="554" class="panel-chip">(d) Regime-Gated Output Head</text>
+
+      <rect x="852" y="556" width="268" height="34" rx="12" fill="#eef4ff" stroke="#92b3f5" stroke-width="1.1" filter="url(#shadow-card)"/>
+      <text x="986" y="577" text-anchor="middle" class="section-title" fill="#1d4ed8">Base Predictions: debate_vol, persist_vol</text>
+
+      <rect x="664" y="596" width="170" height="30" rx="11" fill="#fff4de" stroke="#efb054" stroke-width="1.1" filter="url(#shadow-card)"/>
+      <text x="749" y="615" text-anchor="middle" class="section-title" fill="#9a5b0b">Graph Embedding</text>
+
+      <path d="M 552 828 C 618 828, 620 738, 626 676 C 630 642, 642 620, 664 611" class="connector-amber" marker-end="url(#arrow-amber)"/>
+      <text x="632" y="734" class="note-text" fill="#c57612" transform="rotate(-90 632 734)">graph readout</text>
+
+      <path d="M 749 626 C 739 634, 728 645, 716 658" class="connector" marker-end="url(#arrow-slate)"/>
+      <path d="M 749 626 C 792 632, 842 644, 888 658" class="connector" marker-end="url(#arrow-slate)"/>
+      <path d="M 749 626 C 840 631, 950 642, 1060 658" class="connector" marker-end="url(#arrow-slate)"/>
+
+      <rect x="646" y="658" width="140" height="58" rx="14" fill="#fcfbff" stroke="#cdbdf7" stroke-width="1.1"/>
+      <text x="716" y="680" text-anchor="middle" class="section-title" fill="#6d28d9">Base Head</text>
+      <text x="716" y="694" text-anchor="middle" class="body-text" fill="#7c3aed">Linear + Softmax</text>
+      <text x="716" y="709" text-anchor="middle" class="mono-text" fill="#6d28d9">w_base</text>
+
+      <rect x="818" y="658" width="140" height="58" rx="14" fill="#fcfbff" stroke="#cdbdf7" stroke-width="1.1"/>
+      <text x="888" y="680" text-anchor="middle" class="section-title" fill="#6d28d9">Regime Head</text>
+      <text x="888" y="694" text-anchor="middle" class="body-text" fill="#7c3aed">Linear + Softmax</text>
+      <text x="888" y="709" text-anchor="middle" class="mono-text" fill="#6d28d9">w_regime</text>
+
+      <rect x="990" y="658" width="140" height="58" rx="14" fill="#fcfbff" stroke="#cdbdf7" stroke-width="1.1"/>
+      <text x="1060" y="680" text-anchor="middle" class="section-title" fill="#6d28d9">Regime Gate</text>
+      <text x="1060" y="694" text-anchor="middle" class="body-text" fill="#7c3aed">Linear + Sigmoid</text>
+      <text x="1060" y="709" text-anchor="middle" class="mono-text" fill="#6d28d9">g</text>
+
+      <path d="M 716 716 C 716 728, 748 736, 778 742" class="connector" marker-end="url(#arrow-slate)"/>
+      <path d="M 888 716 L 888 742" class="connector" marker-end="url(#arrow-slate)"/>
+      <path d="M 1060 716 C 1060 728, 1028 736, 998 742" class="connector" marker-end="url(#arrow-slate)"/>
+
+      <rect x="664" y="742" width="468" height="42" rx="13" fill="#f6f1ff" stroke="#ba9af3" stroke-width="1.2" filter="url(#shadow-card)"/>
+      <text x="898" y="760" text-anchor="middle" class="section-title" fill="#6d28d9">Weight Blending</text>
+      <text x="898" y="774" text-anchor="middle" class="formula-text">w = (1 - g) * w_base + g * w_regime</text>
+
+      <path d="M 898 784 L 898 800" class="connector" marker-end="url(#arrow-slate)"/>
+
+      <path d="M 986 590 C 1074 620, 1136 688, 1136 770 L 1136 790 C 1136 796, 1130 800, 1122 800" class="connector-blue connector-dashed" marker-end="url(#arrow-blue)"/>
+      <text x="1116" y="694" class="note-text" fill="#2563eb" transform="rotate(-90 1116 694)">base forecasts</text>
+
+      <rect x="674" y="800" width="448" height="34" rx="12" fill="#f6f1ff" stroke="#ba9af3" stroke-width="1.1"/>
+      <text x="898" y="821" text-anchor="middle" class="formula-text">pred = clamp(w1 * debate_vol + w2 * persist_vol + residual, min = 0.05)</text>
+
+      <path d="M 898 834 L 898 848" class="connector" marker-end="url(#arrow-slate)"/>
+      <rect x="708" y="848" width="380" height="34" rx="13" fill="#e5f7ed" stroke="#46a879" stroke-width="1.5" filter="url(#shadow-card)"/>
+      <text x="898" y="869" text-anchor="middle" class="output-text">Predicted 20-day Realized Volatility</text>
+    </g>
+  </g>
+</svg>

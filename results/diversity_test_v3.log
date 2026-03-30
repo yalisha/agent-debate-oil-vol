@@ -1,0 +1,46 @@
+Testing 29 days with GPT-5 + optimized prompts
+Date range: 2024-01-02 to 2024-02-09
+
+[ 1/29] 2024-01-02  R1_std=0.04482 R3_std=0.04988 dirs=2 range=0.1300  60.7s
+[ 2/29] 2024-01-03  R1_std=0.04578 R3_std=0.04375 dirs=3 range=0.1340  65.3s
+[ 3/29] 2024-01-04  R1_std=0.04838 R3_std=0.05382 dirs=3 range=0.1320  45.3s
+[ 4/29] 2024-01-05  R1_std=0.04396 R3_std=0.04596 dirs=2 range=0.1300  65.3s
+[ 5/29] 2024-01-08  R1_std=0.05917 R3_std=0.06356 dirs=2 range=0.1660  58.4s
+[ 6/29] 2024-01-09  R1_std=0.03702 R3_std=0.03852 dirs=2 range=0.1190  64.5s
+[ 7/29] 2024-01-10  R1_std=0.04898 R3_std=0.05050 dirs=2 range=0.1350  60.9s
+[ 8/29] 2024-01-11  R1_std=0.04512 R3_std=0.04552 dirs=2 range=0.1200  66.8s
+[ 9/29] 2024-01-12  R1_std=0.04320 R3_std=0.04467 dirs=2 range=0.1170  62.1s
+[10/29] 2024-01-15  R1_std=0.04119 R3_std=0.04276 dirs=3 range=0.1150  81.2s
+[11/29] 2024-01-16  R1_std=0.03890 R3_std=0.04109 dirs=2 range=0.1080  87.0s
+[12/29] 2024-01-17  R1_std=0.04963 R3_std=0.04899 dirs=2 range=0.1550  70.6s
+[13/29] 2024-01-18  R1_std=0.04678 R3_std=0.04910 dirs=2 range=0.1220  85.2s
+[14/29] 2024-01-19  R1_std=0.04504 R3_std=0.04935 dirs=2 range=0.1200  73.5s
+[15/29] 2024-01-22  R1_std=0.05218 R3_std=0.05601 dirs=2 range=0.1600  46.5s
+[16/29] 2024-01-23  R1_std=0.04432 R3_std=0.04674 dirs=2 range=0.1190  56.0s
+[17/29] 2024-01-24  R1_std=0.04212 R3_std=0.04326 dirs=2 range=0.1080  85.7s
+[18/29] 2024-01-25  R1_std=0.04203 R3_std=0.04491 dirs=2 range=0.1140  51.2s
+[19/29] 2024-01-26  R1_std=0.03747 R3_std=0.03942 dirs=2 range=0.1100  62.0s
+[20/29] 2024-01-29  R1_std=0.04512 R3_std=0.04995 dirs=2 range=0.1310  76.6s
+[21/29] 2024-01-30  R1_std=0.04184 R3_std=0.04772 dirs=2 range=0.1200  35.3s
+[22/29] 2024-01-31  R1_std=0.04653 R3_std=0.05067 dirs=2 range=0.1280  64.5s
+[23/29] 2024-02-01  R1_std=0.05120 R3_std=0.05460 dirs=2 range=0.1460  73.3s
+[24/29] 2024-02-02  R1_std=0.05663 R3_std=0.06245 dirs=2 range=0.1710  82.5s
+[25/29] 2024-02-05  R1_std=0.03697 R3_std=0.03705 dirs=3 range=0.1040  298.1s
+[26/29] 2024-02-06  R1_std=0.05132 R3_std=0.05283 dirs=2 range=0.1320  513.7s
+[27/29] 2024-02-07  R1_std=0.04954 R3_std=0.05172 dirs=2 range=0.1200  770.1s
+[28/29] 2024-02-08  R1_std=0.04001 R3_std=0.04198 dirs=2 range=0.0900  765.1s
+[29/29] 2024-02-09  R1_std=0.03877 R3_std=0.03796 dirs=2 range=0.1060  508.3s
+
+======================================================================
+DIVERSITY COMPARISON: v2 (haiku) vs v3 (gpt-5 + optimized)
+======================================================================
+
+Metric                                v2 (haiku)   v3 (gpt-5)    Ratio
+──────────────────────────────────────────────────────────────────────
+R1 cross-agent std (mean)                0.00550      0.04531      8.2x
+R3 cross-agent std (mean)                0.00160      0.04775     29.9x
+R1 all-same-adj days                           3            0
+R1 unique directions (mean)                  N/A         2.14
+R1 mean pairwise correlation              0.2323       0.0285
+
+Results saved to /Users/mac/computerscience/17Agent可解释预测/results/debate_diversity_test_v3.csv

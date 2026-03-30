@@ -1,0 +1,117 @@
+Loaded v2 data: n=2715, date range 2013-04-01 to 2025-05-29
+======================================================================
+STEP 1: FEATURE DIAGNOSTIC
+======================================================================
+
+Sample: n=2715
+
+Baseline correlations:
+  debate_vol vs actual_vol: r=0.4611
+  persist_vol vs actual_vol: r=0.4611
+
+--- Per-agent adj_r3 vs actual_vol ---
+  adj_r3_geopolitical  : r=-0.2764
+  adj_r3_macro_demand  : r=-0.2490
+  adj_r3_monetary      : r=-0.2642
+  adj_r3_supply_opec   : r=-0.2849
+  adj_r3_technical     : r=-0.2675
+  adj_r3_sentiment     : r=-0.2479
+  adj_r3_cross_market  : r=-0.2697
+
+--- Cross-agent summaries ---
+  mean_adj_r3 vs actual_vol: r=-0.2806
+  std_adj_r3 vs actual_vol:  r=+0.2066
+  partial_r(mean_adj_r3, actual_vol | debate_vol): -0.0190
+
+--- Confidence features ---
+  mean_conf_r3 vs actual_vol: r=+0.1767
+  std_conf_r3 vs actual_vol:  r=+0.0305
+
+--- Revision features ---
+  mean_total_revision vs actual_vol: r=+0.1854
+
+--- Incremental R² (in-sample) ---
+  debate_vol only:          R²=0.2127
+  debate_vol + new features: R²=0.2151
+  Incremental R²:           +0.0024
+
+======================================================================
+STEP 2: RIDGE STACKING (GO/NO-GO GATE)
+======================================================================
+
+  Ridge-debate_only:
+    RMSE=0.1457, DM_HAC=-3.278 (p=0.0010)
+    n=2463
+    Regime: low=0.1154 normal=0.1231 elev=0.1682 high=0.1757
+
+  Ridge-cross_agent:
+    RMSE=0.1471, DM_HAC=-2.947 (p=0.0032)
+    n=2463
+    Regime: low=0.1153 normal=0.1251 elev=0.1684 high=0.1804
+
+  Ridge-full_peragent:
+    RMSE=0.1490, DM_HAC=-2.597 (p=0.0094)
+    n=2463
+    Regime: low=0.1190 normal=0.1254 elev=0.1714 high=0.1830
+
+  full_peragent vs debate_only: DM_HAC=2.661 (p=0.0078)
+
+  cross_agent vs debate_only: DM_HAC=1.683 (p=0.0924)
+
+  GO/NO-GO: GO (best p=0.0010)
+
+--- Reference baselines (n=2463) ---
+  HAR:        RMSE=0.1600
+  Persistence: RMSE=0.1653
+  GARCH:      RMSE=0.4489
+  Naive debate: RMSE=0.1623
+
+======================================================================
+STEP 3 & 4: MLP AND GAT EXPERIMENTS
+======================================================================
+
+────────────────────────────────────────────────────────────
+Feature Tier T1: node_feat_dim=6, context_dim=14
+────────────────────────────────────────────────────────────
+  T1-MLP:
+    Per-seed: 0.1585 +/- 0.0009
+    Ensemble: 0.1568, DM_HAC=-0.779 (p=0.4358)
+    Regime:   low=0.1407 normal=0.1280 elev=0.1802 high=0.1953
+  T1-GAT:
+    Per-seed: 0.1508 +/- 0.0004
+    Ensemble: 0.1505, DM_HAC=-2.158 (p=0.0310)
+    Regime:   low=0.1250 normal=0.1229 elev=0.1698 high=0.2011
+
+────────────────────────────────────────────────────────────
+Feature Tier T2: node_feat_dim=12, context_dim=14
+────────────────────────────────────────────────────────────
+  T2-MLP:
+    Per-seed: 0.1580 +/- 0.0011
+    Ensemble: 0.1561, DM_HAC=-0.882 (p=0.3777)
+    Regime:   low=0.1421 normal=0.1268 elev=0.1798 high=0.1943
+  T2-GAT:
+    Per-seed: 0.1509 +/- 0.0004
+    Ensemble: 0.1504, DM_HAC=-2.214 (p=0.0268)
+    Regime:   low=0.1272 normal=0.1224 elev=0.1701 high=0.2002
+
+======================================================================
+STEP 5: PAIRWISE COMPARISONS
+======================================================================
+  T1 GAT vs MLP: DM_HAC=-1.851 (p=0.0641)
+  T2 GAT vs MLP: DM_HAC=-1.909 (p=0.0562)
+
+======================================================================
+FULL SUMMARY
+======================================================================
+
+Model                         RMSE   DM_HAC        p   Sig
+───────────────────────────────────────────────────────
+  Ridge-debate_only         0.1457   -3.278   0.0010   ***
+  Ridge-cross_agent         0.1471   -2.947   0.0032   ***
+  Ridge-full_peragent       0.1490   -2.597   0.0094   ***
+  T2-GAT                    0.1504   -2.214   0.0268    **
+  T1-GAT                    0.1505   -2.158   0.0310    **
+  T2-MLP                    0.1561   -0.882   0.3777  n.s.
+  T1-MLP                    0.1568   -0.779   0.4358  n.s.
+
+Results saved to /Users/mac/computerscience/17Agent可解释预测/results/leak_free_gat_results.csv
